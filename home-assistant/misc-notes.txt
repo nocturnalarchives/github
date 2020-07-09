@@ -1,0 +1,42 @@
+HUE Color Archives
+-----------------------------------------------------------------------------------------
+https://web.archive.org/web/20161023150649/http://www.developers.meethue.com:80/documentation/hue-xy-values
+
+HUE BULB COLORS
+-----------------------------------------------------------------------------------------
+Old Yellow Bulb - kelvin: 3500
+Soft White Bulb - kelvin: 4000
+Full White - kelvin: 5000
+Blue White = kelvin: 6000
+
+HUE BULB COLOR
+-----------------------------------------------------------------------------------------
+brightness_pct: 100
+entity_id: light.soffit_bulb_s1
+kelvin: 5000
+
+brightness_pct: 100
+entity_id: light.soffit_bulb_s2
+kelvin: 5000
+
+brightness_pct: 100
+entity_id: light.soffit_bulb_s3
+kelvin: 5000
+
+brightness_pct: 100
+entity_id: light.soffit_bulb_s4
+kelvin: 5000
+
+brightness_pct: 100
+entity_id: light.soffit_bulb_s5
+kelvin: 5000
+
+brightness_pct: 100
+entity_id: light.pendulum_bulb
+kelvin: 5000
+
+
+Date Event
+-----------------------------------------------------------------------------------------
+
+
