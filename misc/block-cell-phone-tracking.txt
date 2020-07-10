@@ -1,0 +1,29 @@
+Step 1 install a PiHole DNS server, this allows you to completely block any domain you don’t like from getting any information about you. Be sure to install PiVPN you’ll need it later.
+
+Step 2 Get a VPN subscription to obfuscate your true IP and location.
+
+Step 3 Get a Router that you can upload a DD-WRT config file from your VPN provider. Now every device in your home uses the VPN providers IP and your location is hundreds of miles away.
+
+Step 4 Disable all of your location services individually for every app. Then disable all Location Services with the master switch.
+
+Step 5 Turn on Airplane Mode, DO NOT TURN IT ON UNLESS YOU ABSOLUTELY HAVE TO. This forces all communication to occur over WiFi and through your PiHole blocker. Your phone and any apps cannot get out any other way. This also makes it impossible for anyone to get your location by triangulation from cell phone towers.
+
+Step 6 Enable WiFi calling, you will get/make calls and texts as usual, but everything goes out over WiFI and through your PiHole where you decide if it gets out or not.
+
+Step 7 Disable Bluetooth and BLE connectivity. The BLE setting is a few levels deep, if you can’t find it let me know I have instructions for iPhone and Android.
+
+Step 8 When you leave your house disable WiF, keep it off until you reach your destination.
+
+Step 9 Open your OpenVPN app and try to connect to your home VPN network. This will fail, that’s OK. OpenVPN has an internet kill switch that blocks all communication if you’re not connected to your home VPN. This prevents your data from “leaking” before you’re connected to your home VPN.
+
+Step 10 When you get to your destination connect to a WiFi network, this will establish a connection to your home VPN. Because you’re connected to your home network you are blocking the exact same websites you were blocking at home. The WiFi you’re using will only see you connecting to your home network, all of the details are encrypted and can’t be seen.
+
+Step 11 When you are ready to leave turn off the WiFi but keep the VPN active, this keeps your data from “leaking”
+
+Step 12 Watch the logs on your PiHole and block any location data from getting out. For example apple uses these two domains to get your location:
+
+gs-loc.apple.com
+ls.apple.com
+
+
+

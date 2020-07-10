@@ -35,8 +35,16 @@ brightness_pct: 100
 entity_id: light.pendulum_bulb
 kelvin: 5000
 
+brightness_pct: 100
+entity_id: light.living_room_lamp
+kelvin: 5000
 
 Date Event
 -----------------------------------------------------------------------------------------
 
 
+Phone Alert
+-----------------------------------------------------------------------------------------
+data:
+  message: "Check PiHole"
+  title: "Large Number Of Queries +75K"
