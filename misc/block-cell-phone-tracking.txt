@@ -2,11 +2,11 @@ Step 1 install a PiHole DNS server, this allows you to completely block any doma
 
 Step 2 Get a VPN subscription to obfuscate your true IP and location.
 
-Step 3 Get a Router that you can upload a DD-WRT config file from your VPN provider. Now every device in your home uses the VPN providers IP and your location is hundreds of miles away. 
+Step 3 Get a Router that you can upload a DD-WRT config file from your VPN provider. Now every device in your home uses the VPN providers IP and your location is hundreds of miles away.
 
 Step 4 Disable all of your location services individually for every app. Then disable all Location Services with the master switch.
 
-Step 5 Turn on Airplane Mode, DO NOT TURN IT ON UNLESS YOU ABSOLUTELY HAVE TO. This forces all communication to occur over WiFi and through your PiHole blocker. Your phone and any apps cannot get out any other way. This also makes it impossible for anyone to get your location by triangulation from cell phone towers.
+Step 5 Turn on Airplane Mode, DO NOT TURN IT OFF UNLESS YOU ABSOLUTELY HAVE TO. This forces all communication to occur over WiFi and through your PiHole blocker. Your phone and any apps cannot get out any other way. This also makes it impossible for anyone to get your location by triangulation from cell phone towers.
 
 Step 6 Enable WiFi calling, you will get/make calls and texts as usual, but everything goes out over WiFI and through your PiHole where you decide if it gets out or not.
 

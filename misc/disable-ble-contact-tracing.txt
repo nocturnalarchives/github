@@ -1,0 +1,25 @@
+Contact Tracing is being done using BLE, turning off your normal Bluetooth connectivity does not prevent you from being tracked using BLE.
+
+Here are the steps on how to disable BLE on an iPhone or Android Phone
+
+IPHONE
+Settings > Privacy > Location Services > Share My Location > Find My iPhone
+
+Enable Offline Finding: Turn Off
+
+Send Last Location: Turn Off
+
+WARNING
+Making these changes will break most of the “Find My iPhone” functionality.
+
+
+ANDROID
+Here are the steps for disabling similar services on Android.
+Google App > Tap profile icon > Manage your Google Account > Data & Personalization > Under Activity Controls - Pause Location History.
+Also,
+Settings > Google Services & Preferences > Security > Find My Device - Off
+
+WARNING
+These changes will break the “Find My Device” functionality.
+
+
