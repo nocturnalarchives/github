@@ -1,0 +1,15 @@
+Lightweight scraping into Google Sheets
+
+https://www.benlcollins.com/spreadsheets/import-social-media-statistics/#reddit
+
+Twitter Scraper
+https://github.com/twintproject/twint
+https://github.com/twintproject/twint/blob/master/README.md
+twint -u username
+
+
+Reddit
+https://github.com/JosephLai241/URS
+
+Facebook
+https://github.com/harismuneer/Ultimate-Facebook-Scraper

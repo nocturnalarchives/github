@@ -2,7 +2,7 @@ Step 1 install a PiHole DNS server, this allows you to completely block any doma
 
 Step 2 Get a VPN subscription to obfuscate your true IP and location.
 
-Step 3 Get a Router that you can upload a DD-WRT config file from your VPN provider. Now every device in your home uses the VPN providers IP and your location is hundreds of miles away.
+Step 3 Get a Router that you can upload a DD-WRT config file from your VPN provider. Now every device in your home uses the VPN providers IP and your location is hundreds of miles away. 
 
 Step 4 Disable all of your location services individually for every app. Then disable all Location Services with the master switch.
 
