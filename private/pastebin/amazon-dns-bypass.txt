@@ -1,0 +1,53 @@
+If You Have A Firestick, Amazon Echo or Ring Doorbell, It's Secretly Trying Evade Your Pihole DNS Blocking
+
+The screenshots above are from the real time logs on my new router. I recently upgraded my router to get features like this because I suspected devices trying to circumvent my network rules, my old router didn't give me ability to audit the connections. Where the devices are trying to connect:
+
+dns.google.com (Google's public DNS server - This is the biggest offender)
+192.168.49.1 (The default IP for Linksys Routers)
+192.168.1.2 (The default IP for a wide variety of Routers)
+dns.phoenix591.com (This appears to be a developers private DNS server)
+
+How Did I Discover This
+As I said I had suspected this was happening for a while but couldn't prove it because my router didn't have a way to audit the connections, so I bought a new router about a month ago. I have a busy complicated network, and it took a few weeks to get setup, once things were running smoothly I started blocking the IP Addresses of well known public DNS servers(https://github.com/nocturnalarchives/BlockLists/blob/master/dns-providers.txt). Then I started blocking the hostnames of well known DNS servers(https://github.com/nocturnalarchives/BlockLists/blob/master/public-dns-servers.txt). I then rerouted the traffic of devices trying to get out on their own using port 53. With those blocking rules in place I started monitoring the logs to see what I found.
+
+The first device I caught trying to evade my Pihole was my Home Assistant Smart Hub(https://community.home-assistant.io/t/upgrading-to-0-112-3-i-suspect-dns-values-are-hardcoded/210198). Then I caught my Firestick joining the open guest network(https://www.reddit.com/r/pihole/comments/hrdh1p/if_you_have_a_firestick_it_will_try_to_use_an/). Closing down the guest network was key, because once I did the devices only had access to the network they were, on and I was able to see their activity in my real time logs. I then turned off devices on the network I wasn't worried about, only leaving on the devices I thought were trying to evade my blocking. I then power cycled the devices knowing this would trigger them them to do the DNS resolution of where they were supposed to data once the device rebooted. As this was happening I watched my realtime logs and screen shotted the problematic entries as they scrolled by.
+
+My main network uses the IP range of 10.0.1.1 - 255, my guest network uses the IP range of 192.168.99.200 - 255. I intentionally use these non standard ranges so I can spot devices trying to bypass my network rules looking for common router addresses like 192.168.1.2 and 192.168.49.1. Sometimes intentionally doing things the "wrong way" is the better way.
+
+Why Does This Matter
+The standard use case for a Pihole is to block ads, however I use it to regain my privacy by blocking advertising and marketing companies from tracking me. I have a very aggressive set of RegEx rules that blocks advertising and marketing companies from tracking me(https://github.com/nocturnalarchives/BlockLists/blob/master/regex-blaclist-rules.txt). These rules also let you do some interesting and unexpected things, like Use your Pihole to prevent the location of your cell phone from being tracked(https://github.com/nocturnalarchives/github/blob/master/misc/block-cell-phone-tracking.txt). My phone is in airplane mode connected to my Pihole via PIVPN almost all of the time, the last time I was on a cellular network was April. If I'm creating a strict rule set for what can or can't get out on my network, devices and services I paid for should respect those rules. Devices trying to bypass those rules is exactly what Paul Vixie, the inventor of DNS, blasted Google for doing.(https://www.businessinsider.com/paul-vixie-blasts-google-chromecast-2019-2)
+
+Beware The Amazon Attack Shills
+This is not the first post I've made exposing Amazon's shady and invasive networking practices. I caught my Ring Doorbell notifying Facebook whenever it activated(https://i.imgur.com/w0Dayie.jpg). I caught my Amazon Echo trying to send data to Spotify even though I don't have a Spotify account(https://reddit.com/r/amazonecho/comments/hs0bpk/why_is_my_alexa_device_trying_to_send_data_to/). Because Amazon customers who own an Alexa device spend 29% more than the average customer(https://www.forbes.com/sites/johnkoetsier/2018/05/30/40k-person-study-buying-echo-increases-amazon-purchases-29-especially-cpg-items/) they probably don't want people to know their devices are spying on them, and are using extremely questionable tactics to bypass any network blocking rules their customers may have put in place. So what happens next is the attack shills come in and try to dog-pile on the thread creating as much infighting as possible to try and force the moderators to remove the thread. If you don't believe online attack shills are really a thing here's an article explaining how attack trolling works (https://medium.com/@danbarber_12163/the-guide-to-effectively-fighting-fud-417d2340678a) and here's another article explaining some of the tactics attack shills use to get people banned and threads removed (https://advertiserblocklist.com/paid-shills-attack-agents/). I'm completely fine with the thread being locked to prevent that situation. I've been online for a very long time and know exactly how the game is played, so I'm dropping this on Pastebin and archiving it in case that does happen.
+
+Pastebin: https://pastebin.com/mJRpPBgt
+Archive: https://archive.is/wip/Spk9R
+Archive: https://web.archive.org/web/20200717232836/https://pastebin.com/mJRpPBgt
+
+My goal here is not to continually attack Amazon or any other IOT device manufacturer, my goal here is to alert the people who use a Pihole and DNS blocking, that the vendors are aware of what we're doing and are stealthily using countermeasures to circumvent those blocking strategies. I thought I had things locked down pretty securely, the past few weeks have shown me that I was wrong. You may feel you have things locked down too, but you need to ask yourself are you blocking all of the things I highlighted, because if you aren't they are getting out. I really really like my Pihole, it is hands down the single biggest thing that has positively changed my life in the past few years by allowing me to reclaim some of my privacy. When companies try to secretly undo that progress, I am going to shine a light on it and expose that behavior. My goal is not to attack any specific company, my goal is to maintain my privacy that I have managed to reclaim, and right now the Amazon devices on my network are actively working against that goal.
+
+There will be people who will try to defend Amazon, saying their devices use hardcoded DNS servers in case there's a problem with the customers network, and they only care about helping customers watch their entertainment, and they aren't trying to secretly bypass anyone's network rules. If that were true then Amazon would use a "Canary Domain" the way Mozilla does with Firefox (https://support.mozilla.org/en-US/kb/configuring-networks-disable-dns-over-https). If the person in charge of the network doesn't want the DNS settings of their network to be overridden, then they block the Canary Domain, this way any device or program can check the Canary Domain first, if they can access it, they know it's OK to bypass the DNS device on the network. If the Canary Domain is blocked, they know the person running the network wants all devices to strictly obey the DNS server being specified. Blocking a Canary Domain is something that requires Admin level access on a router and is always several levels deep, no one is accidentally blocking a Canary Domain. If Amazon's programmers are smart enough to evade DNS level blocking, they are aware of the role of a Canary Domain.
+
+
+
+-----------------------------------------------------------------------------------------
+
+Misc Items From Screen Shots
+Why does my phone show as "Player1-iPhone", I post a lot of screen shots and by naming my devices with the obfuscated "Player 1" prefix I don't have to worry about self doxing. I also skip numbers and use letter to further obfuscate things. There is an old Fire Tablet plugged in with with prefix "Player17D" just to throw things off.
+
+Why don't I care about my Verizon FIOS cable router contacting dns.google.com, I have three networks, the cable router was setup to not use my Pihole, not everyone in my house agrees with the importance I place on privacy, having a separate network with no restrictions keeps there from being unnecessary friction in the house.
+
+Why is my Lutron Lighting Hub contacting 5.2.155.141 a server in Romania, [I asked that question too when I saw it a day or two ago](https://reddit.com/r/Lutron/comments/hrh6vx/why_is_my_lutron_hub_trying_to_connect_to_a/). They assured me it was nothing to worry about, I was unconvinced, so I blocked the hostname. Today it tried to contact a server in Romania using an IP address, I have blocked that as well, this is a developing situation.
+
+Whats up with dns.phoenix591.com, after doing some research I discovered he's an Android developer. I also discovered he has a day job as the Director of IT Client Services for a healthcare company in Minnesota and is running his server on an IP that's owned by the parent company of the company he works for. I'm not interested in exposing him, but his server was the clue that made everything in this thread fall into place.
+
+No these DNS requests aren't being generated by some unofficial application that wasn't from the App Store that I side-loaded. If you go back and check the screenshots you will see some of them are from an Echo Show, which you can't side-load things onto. The programming that's trying to bypass my local DNS rules is part of the core programming from Amazon.
+
+
+These images are from multiple screenshots and were cropped to give the necessary background context and eliminate overwhelming anyone with needless information. They were then combined into one image using an online collage maker for easier use. Arrows pointing out the important pieces of information were added to make the image more user friendly. The textual content within the images was not altered or manipulated in any way.
+
+Individual Images: https://imgur.com/a/0JCuWYG
+Archive: https://archive.is/wip/rsJGp
+Archive: https://web.archive.org/web/20200717223127/https://imgur.com/a/0JCuWYG
+
+
