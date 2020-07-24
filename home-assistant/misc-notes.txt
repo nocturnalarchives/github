@@ -39,6 +39,15 @@ brightness_pct: 100
 entity_id: light.living_room_lamp
 kelvin: 5000
 
+brightness_pct: 100
+entity_id: light.lr1
+kelvin: 5000
+
+brightness_pct: 100
+entity_id: light.lr2
+kelvin: 5000
+
+
 Weekday Event
 -----------------------------------------------------------------------------------------
 condition: time
