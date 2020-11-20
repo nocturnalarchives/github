@@ -1,3 +1,7 @@
+DB CORRUPT
+rm /config/home-assistant_v2.db
+
+
 HUE Color Archives
 -----------------------------------------------------------------------------------------
 https://web.archive.org/web/20161023150649/http://www.developers.meethue.com:80/documentation/hue-xy-values
@@ -8,6 +12,17 @@ Old Yellow Bulb - kelvin: 3500
 Soft White Bulb - kelvin: 4000
 Full White - kelvin: 5000
 Blue White = kelvin: 6000
+Red - rgb_color: 219,20,61
+
+
+brightness_pct: 100
+entity_id: light.lr1
+rgb_color: 144,116,64
+
+brightness_pct: 100
+entity_id: light.lr2
+rgb_color: 0,0,140
+
 
 HUE BULB COLOR
 -----------------------------------------------------------------------------------------
@@ -47,6 +62,76 @@ brightness_pct: 100
 entity_id: light.lr2
 kelvin: 5000
 
+RED
+brightness_pct: 100
+entity_id: light.soffit_bulb_s1
+rgb_color:
+  - 219
+  - 20
+  - 61
+
+White
+brightness_pct: 100
+entity_id: light.soffit_bulb_s3
+kelvin: 4500
+
+BLUE
+brightness_pct: 100
+entity_id: light.soffit_bulb_s4
+rgb_color:
+  - 0
+  - 0
+  - 140
+
+PURPLE
+brightness_pct: 100
+entity_id: light.lr1
+rgb_color:
+  - 70
+  - 0
+  - 130
+
+BRIGHT GREEN
+brightness_pct: 100
+entity_id: light.lr2
+rgb_color:
+  - 127
+  - 255
+  - 0
+
+ORANGE
+entity_id: light.lr2
+service: light.turn_on
+data:
+  brightness_pct: 100
+  entity_id: light.lr2
+  rgb_color:
+    - 255
+    - 150
+    - 0
+
+Dark Orange
+entity_id: light.lr2
+service: light.turn_on
+data:
+  brightness_pct: 100
+  entity_id: light.lr2
+  rgb_color:
+    - 255
+    - 140
+    - 0
+
+Dark Yellow
+entity_id: light.lr2
+service: light.turn_on
+data:
+  brightness_pct: 100
+  entity_id: light.lr2
+  rgb_color:
+    - 183
+    - 135
+    - 10
+
 
 Weekday Event
 -----------------------------------------------------------------------------------------
@@ -75,3 +160,92 @@ Phone Alert
 data:
   message: "Check PiHole"
   title: "Large Number Of Queries +75K"
+
+
+
+weekday:
+  - mon
+  - tue
+  - wed
+  - thu
+  - fri
+  - sat
+  - sun
+
+condition: time
+weekday:
+  - mon
+  - wed
+  - fri
+  - sun
+
+condition: time
+weekday:
+  - tue
+  - thu
+  - sat
+
+
+-----------------------------------------------------------------------------------------
+entity_id: light.soffit_bulb_s1
+service: light.turn_on
+data:
+  brightness_pct: 100
+  entity_id: light.soffit_bulb_s1
+  rgb_color:
+    - 255
+    - 140
+    - 0
+
+
+entity_id: light.soffit_bulb_s2
+service: light.turn_on
+data:
+  brightness_pct: 100
+  entity_id: light.soffit_bulb_s2
+  rgb_color:
+    - 183
+    - 135
+    - 10
+
+entity_id: light.pendulum_bulb
+service: light.turn_on
+data:
+  brightness_pct: 100
+  entity_id: light.pendulum_bulb
+  rgb_color:
+    - 255
+    - 140
+    - 0
+
+
+entity_id: light.soffit_bulb_s3
+service: light.turn_on
+data:
+  brightness_pct: 100
+  entity_id: light.soffit_bulb_s3
+  rgb_color:
+    - 183
+    - 135
+    - 10
+
+entity_id: light.soffit_bulb_s4
+service: light.turn_on
+data:
+  brightness_pct: 100
+  entity_id: light.soffit_bulb_s4
+  rgb_color:
+    - 255
+    - 140
+    - 0
+
+
+entity_id: light.soffit_bulb_s5
+service: light.turn_on
+data:
+  brightness_pct: 100
+  entity_id: light.soffit_bulb_s5
+  rgb_color:
+    - 183
+    - 135
+    - 10
