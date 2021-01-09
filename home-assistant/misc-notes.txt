@@ -1,6 +1,13 @@
 DB CORRUPT
 rm /config/home-assistant_v2.db
 
+-rm /config/home-assistant_v2.db
+-rm /home-assistant_v2.db
+-r config/home-assistant_v2.db
+-r /home-assistant_v2.db
+-r home-assistant_v2.db
+
+rm home-assistant_v2.db
 
 HUE Color Archives
 -----------------------------------------------------------------------------------------
@@ -91,13 +98,21 @@ rgb_color:
   - 0
   - 130
 
-BRIGHT GREEN
+LIGHT GREEN
 brightness_pct: 100
 entity_id: light.lr2
 rgb_color:
   - 127
   - 255
   - 0
+
+GREEN
+brightness_pct: 100
+entity_id: light.lr2
+rgb_color:
+    - 0
+    - 127
+    - 0
 
 ORANGE
 entity_id: light.lr2
@@ -185,67 +200,56 @@ weekday:
   - thu
   - sat
 
+Template
+{{ now().month == 11 and  now().day > 18}}
+
+{{ now().month == 12 and  now().day == 25}}
 
 -----------------------------------------------------------------------------------------
 entity_id: light.soffit_bulb_s1
 service: light.turn_on
 data:
-  brightness_pct: 100
+  brightness_pct: 50
   entity_id: light.soffit_bulb_s1
-  rgb_color:
-    - 255
-    - 140
-    - 0
+  kelvin: 4000
+
 
 
 entity_id: light.soffit_bulb_s2
 service: light.turn_on
 data:
-  brightness_pct: 100
+  brightness_pct: 50
   entity_id: light.soffit_bulb_s2
-  rgb_color:
-    - 183
-    - 135
-    - 10
+  kelvin: 4000
 
 entity_id: light.pendulum_bulb
 service: light.turn_on
 data:
-  brightness_pct: 100
+  brightness_pct: 50
   entity_id: light.pendulum_bulb
-  rgb_color:
-    - 255
-    - 140
-    - 0
+  kelvin: 4000
 
 
 entity_id: light.soffit_bulb_s3
 service: light.turn_on
 data:
-  brightness_pct: 100
+  brightness_pct: 50
   entity_id: light.soffit_bulb_s3
-  rgb_color:
-    - 183
-    - 135
-    - 10
+  kelvin: 4000
+
 
 entity_id: light.soffit_bulb_s4
 service: light.turn_on
 data:
-  brightness_pct: 100
+  brightness_pct: 50
   entity_id: light.soffit_bulb_s4
-  rgb_color:
-    - 255
-    - 140
-    - 0
+  kelvin: 4000
+
 
 
 entity_id: light.soffit_bulb_s5
 service: light.turn_on
 data:
-  brightness_pct: 100
+  brightness_pct: 50
   entity_id: light.soffit_bulb_s5
-  rgb_color:
-    - 183
-    - 135
-    - 10
+  kelvin: 4000
