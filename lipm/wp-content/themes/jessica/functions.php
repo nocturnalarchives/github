@@ -352,7 +352,7 @@ function jessica_get_homepage_sidebar_array() {
 }
 
 // Remove edit link from TablePress tables for logged in users.
-add_filter( 'tablepress_edit_link_below_table', '__return_false' );
+//add_filter( 'tablepress_edit_link_below_table', '__return_false' );
 
 // * Insert SPAN tag into widgettitle.
 add_filter( 'dynamic_sidebar_params', 'jessica_wrap_widget_titles', 20 );
@@ -490,3 +490,111 @@ remove_action('genesis_entry_footer', 'genesis_post_meta' );
 remove_action('wp_head', 'wp_generator');
 remove_action('genesis_entry_footer', 'genesis_post_meta' );
 
+
+/**
+* Change number of products that are displayed per page (shop page)
+*/
+
+add_filter( 'loop_shop_per_page', 'new_loop_shop_per_page', 20 );
+function new_loop_shop_per_page( $cols ) {
+  // $cols contains the current number of products per page based on the value stored on Options -> Reading
+  // Return the number of products you wanna show per page.
+  $cols = 30;
+
+return $cols;
+}
+
+// Change the Number of Columns Displayed Per Page
+add_filter( 'loop_shop_columns', 'lw_loop_shop_columns' );
+function lw_loop_shop_columns( $columns ) {
+ $columns = 5;
+ return $columns;
+}
+
+/**
+ * Change number of upsells output
+ */
+add_filter( 'woocommerce_upsell_display_args', 'wc_change_number_related_products', 20 );
+
+function wc_change_number_related_products( $args ) {
+
+ $args['posts_per_page'] = 5;
+ $args['columns'] = 5; //change number of upsells here
+ return $args;
+}
+
+add_filter('gettext', 'change_ymal');
+
+function change_ymal($translated)
+{
+	//$translated = str_ireplace('', '', $translated);
+	//$translated = str_ireplace('', '', $translated);
+	//$translated = str_ireplace('', '', $translated);
+	$translated = str_ireplace('Showing the single result', '', $translated);
+	$translated = str_ireplace('Show more Posts', 'Show Next Products', $translated);
+	$translated = str_ireplace('I have read and agree to the website', 'All items on website are custom printed to order – <strong>no returns or refunds on any items</strong>. Please review your items before placing your order. I have read and agree to the website', $translated);
+	$translated = str_ireplace('You may also like', 'Suggested Items', $translated);
+	$translated = str_ireplace('You may be interested in&hellip;', 'Recommended Items', $translated);
+	return $translated;
+}
+
+
+
+add_filter('woocommerce_cross_sells_total', 'cartCrossSellTotal');
+function cartCrossSellTotal($total) {
+	$total = '4';
+	return $total;
+}
+
+function schema_org_markup() {
+    $schema = 'http://schema.org/';
+    // Is single post
+    if ( function_exists(is_woocommerce) && is_woocommerce() ) {
+      $type = 'Product';
+    }
+    elseif ( is_single() ) {
+        $type = "Article";
+    }
+    else {
+        if ( is_page( 644 ) ) { // Contact form page ID
+            $type = 'ContactPage';
+        } // Is author page
+        elseif ( is_author() ) {
+            $type = 'ProfilePage';
+        } // Is search results page
+        elseif ( is_search() ) {
+            $type = 'SearchResultsPage';
+        } // Is of movie post type
+        elseif ( is_singular( 'movies' ) ) {
+            $type = 'Movie';
+        } // Is of book post type
+        elseif ( is_singular( 'books' ) ) {
+            $type = 'Book';
+        }
+        else {
+            $type = 'WebPage';
+        }
+    }
+    echo 'itemscope="itemscope" itemtype="' . $schema . $type . '"';
+}
+
+add_action( 'wp_head', 'atlasws_schema' );
+function atlaswsschema(){
+	 schema_org_markup();
+	 language_attributes();
+}
+
+/**
+ * Auto Complete all WooCommerce orders.
+ */
+add_action( 'woocommerce_thankyou', 'custom_woocommerce_auto_complete_order' );
+function custom_woocommerce_auto_complete_order( $order_id ) {
+    if ( ! $order_id ) {
+        return;
+    }
+
+    $order = wc_get_order( $order_id );
+    $order->update_status( 'completed' );
+}
+
+?>
