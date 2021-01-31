@@ -34,6 +34,8 @@ $GLOBALS['woofootercartlinksdisable'] = false;
 $GLOBALS['woocommerce_enable_atlasws'] = false;
 $GLOBALS['woocols'] = 30;
 $GLOBALS['woocolumns'] = 5;
+$GLOBALS['defaultfilesizes'] = true;
+$GLOBALS['additionalcss'] = "";
 // endfold
 
 // 4.0.1 Domain Checks /
@@ -238,10 +240,48 @@ $GLOBALS['woocolumns'] = 5;
     	$GLOBALS['aws_home_frequent'] = true; //Don't let the homepage get old
         $GLOBALS['woopricerangedisable'] = true;
         $GLOBALS['woofootercartlinksdisable'] = true;
+        $GLOBALS['defaultfilesizes'] = false;
+
+
+        add_image_size( 'home-top', 750, 420, true );
+    	add_image_size( 'large-rectangle', 600, 336, true );
+    	add_image_size( 'square-1', 400, 400, false );
+    	add_image_size( 'square-2', 200, 200, false );
+
 
     }
     // endfold
 
+    // LongIslandShirt.com
+    // fold
+    if ($aws_domain == "longislandpromotional.com"){
+        //set the GTM ID
+        $GLOBALS['aws_gtm'] = "GTM-59K49DK";
+        $GLOBALS['woocommerce_enable_atlasws'] = true;
+        $GLOBALS['woocols'] = 30;
+        $GLOBALS['woocolumns'] = 5;
+        $GLOBALS['wooupsellnum'] = 5;
+        $GLOBALS['wooupsellcols'] = 5;
+        $GLOBALS['woocrosssellnum'] = 4;
+
+        //Site Based Options
+        remove_action( 'genesis_before_content_sidebar_wrap', 'genesis_do_breadcrumbs' ); //remove existing bredcrumb position
+    	//add_action( 'genesis_entry_header', 'genesis_do_breadcrumbs', 12 ); //move it to under the heading
+    	//$GLOBALS['aws_meta_info_disp'] = true; //we are going to turn off the post meta info in section
+    	$GLOBALS['aws_home_frequent'] = true; //Don't let the homepage get old
+        $GLOBALS['woopricerangedisable'] = true;
+        $GLOBALS['woofootercartlinksdisable'] = true;
+        $GLOBALS['defaultfilesizes'] = false;
+
+
+        add_image_size( 'home-top', 750, 420, true );
+    	add_image_size( 'large-rectangle', 600, 336, true );
+    	add_image_size( 'square-1', 400, 400, false );
+    	add_image_size( 'square-2', 200, 200, false );
+
+
+    }
+    // endfold
 
 
     //MiamiBeachAdvsor.Com
@@ -459,6 +499,9 @@ if ($GLOBALS['aws_gtm'] != ""){
 
 
 
+
+
+// endfold
 
 
 // endfold

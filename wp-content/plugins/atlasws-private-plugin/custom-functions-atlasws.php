@@ -3,7 +3,7 @@
  Plugin Name: ATLASWS Private Plugin
  Plugin URI: http://awgr.com/wp-content/plugins/atlasws-private-plugin.zip
  description: ATLASWS Common Library Functions
- Version: 1.0.0.49
+ Version: 1.0.0.50
  Author:
  Author URI:
  */
@@ -97,22 +97,25 @@ function custom_favicon( $favicon_url ) {
 	return ''. trailingslashit( get_bloginfo('url') ) .'favicon.ico';
 }
 
-// These are cropped image sizes
-add_image_size( 'home-top', 750, 420, true );
-add_image_size( 'large-rectangle', 600, 336, true );
-add_image_size( 'med-rectangle', 400, 245, true );
-add_image_size( 'small-rectangle', 300, 185, true );
-add_image_size( 'c-square-1', 250, 250, true );
-add_image_size( 'thumbnail', 150, 150, true );
-add_image_size( 'sm-thumbnail', 100, 100, true );
-// These are uncropped image sizes
-add_image_size( 'r-uncropped1', 800, 800, false );
-add_image_size( 'r-uncropped2', 700, 700, false );
-add_image_size( 'r-uncropped3', 600, 600, false );
-add_image_size( 'r-uncropped4', 500, 500, false );
-add_image_size( 'square-1', 400, 400, false );
-add_image_size( 'square-2', 300, 300, false );
-add_image_size( 'square-3', 200, 200, false );
+if($GLOBALS['defaultfilssizes']){
+	// These are cropped image sizes
+	add_image_size( 'home-top', 750, 420, true );
+	add_image_size( 'large-rectangle', 600, 336, true );
+	add_image_size( 'med-rectangle', 400, 245, true );
+	add_image_size( 'small-rectangle', 300, 185, true );
+	add_image_size( 'c-square-1', 250, 250, true );
+	add_image_size( 'thumbnail', 150, 150, true );
+	add_image_size( 'sm-thumbnail', 100, 100, true );
+	// These are uncropped image sizes
+	add_image_size( 'r-uncropped1', 800, 800, false );
+	add_image_size( 'r-uncropped2', 700, 700, false );
+	add_image_size( 'r-uncropped3', 600, 600, false );
+	add_image_size( 'r-uncropped4', 500, 500, false );
+	add_image_size( 'square-1', 400, 400, false );
+	add_image_size( 'square-2', 300, 300, false );
+	add_image_size( 'square-3', 200, 200, false );
+}
+
 
 add_filter( 'image_size_names_choose', 'atlasws_custom_sizes' ); // 2.1.2 Register the image sizes for use in Add Media modal
 
@@ -146,7 +149,9 @@ function aws_the_domain($the_domain, $aws_debug_flag){
 
 // 2.1.2 Register the image sizes for use in Add Media modal
 function atlasws_custom_sizes( $sizes ) {
+	//if($GLOBALS['defaultfilesizes']){
     return array_merge( $sizes, array(
+
         'home-top' => __( 'Home Top' ),
 				'large-rectangle' => __( 'Large Rectangle' ),
 				'med-rectangle' => __( 'Medium Rectangle' ),
@@ -160,6 +165,7 @@ function atlasws_custom_sizes( $sizes ) {
 				'square-2' => __( 'Uncropped Square 2' ),
 				'square-3' => __( 'Uncropped Square 3' )
     ) );
+	//}
 }
 
 
@@ -429,6 +435,7 @@ function single_post_featured_image() { // Add the Featured Image on single post
 // 2.2.5 Displays the date in footer for spider and crawling tracking
 function displaydate(){ // displays todays date in the footer
 	return date('Y-M j');
+	if($GLOBALS['additionalcss'] != ""){displayadditionalcss();}
 }
 
 // 2.2.6 Takes care of things we need to do in the head of the post
@@ -858,6 +865,12 @@ function remove_date($post_info) {
 	//$post_info = 'by [post_author_posts_link] [post_comments] [post_edit]';
 	$post_info = "";
 	return $post_info;
+}
+
+function displayadditionalcss(){
+	if($GLOBALS['additionalcss'] != ""){
+		echo "<style>".$GLOBALS['additionalcss']."</style>";
+	}
 }
 
 // 4.0.0 is in website-data.php

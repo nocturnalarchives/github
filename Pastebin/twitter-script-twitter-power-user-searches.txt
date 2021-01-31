@@ -1,0 +1,81 @@
+
+
+SCRIPT
+************************************************************************************************
+************************************************************************************************
+Here are instructions on how to create easy to use bookmarklets that you can use to help you identify if someone has ever used the phrase [fellow White People] or is a member of [Religious Group] & easy to use Archiving tools. (1/13)
+
+IMG: script-twitter-power-search-tools-and-bookmarklets-1.jpg
+
+
+I'm going to walk you through creating bookmarklets for your browser that enable you to do complex Twitter searches by clicking a single button. If you prefer there's a download link to install them all at the end of the thread. (2/13)
+
+IMG: script-twitter-power-search-tools-and-bookmarklets-2.jpg
+
+
+Want to know if a Twitter User has ever used the phrase [fellow White People] here's an easy to use bookmarklet to help you find out.
+archive.fo/mkmDS (3/13)
+(archive.fo/mkmDS)
+https://pastebin.com/Tw0awxGx
+
+
+Want to see the latest verified accounts that have used the phrase [fellow White People] here's an easy to remember bookmark.
+bit.ly/fellowwhitepeople (4/13)
+(bit.ly/fellowwhitepeople)
+http://bit.ly/fellowwhitepeople
+
+
+Want to know if a Twitter User is a member of [Religious Group], here's an easy to use bookmarklet to help you find out.
+(archive.fo/pTyxW) (5/13)
+(archive.fo/pTyxW)
+https://pastebin.com/3tc6S8Yt
+
+
+Want to see all of the Verified Accounts using a phrase, here's an easy to use bookmarklet.
+(archive.fo/xfm08) (6/13)
+(archive.fo/xfm08)
+https://pastebin.com/Y9xhrwPp
+IMG: script-twitter-power-search-tools-and-bookmarklets-6.jpg
+
+
+Want to install a Chrome Extension so you can quickly send a page to Archive.today here's a Link (7/13)
+(bit.ly/2NiYNFY)
+https://bit.ly/2NiYNFY
+
+
+Here's how to create an easy to use Bookmarklet so you can Archive a URL on Archive.today:
+(archive.fo/X1lWb) (8/13)
+(archive.fo/X1lWb)
+https://pastebin.com/4kjPmTFp
+
+
+Here's how to create an easy to use bookmarklet so you can see all of the archived tweets for a Twitter user.
+(archive.fo/oGEgw) (9/13)
+(archive.fo/oGEgw)
+https://pastebin.com/7Fv9QCPC
+
+
+Here's a Chrome Extension that tries to find missing pages you visit in Archive.org Wayback Machine. It also allows you to easily send URLs you want to archive (10/13)
+(bit.ly/2kiEaqJ)
+https://bit.ly/2kiEaqJ
+
+
+If you want to import them all at once visit the link below copy the text & save it to a file named [import.html]. Then using your browser bookmark manager import the file (11/13)
+(archive.fo/sKeqU)
+https://pastebin.com/SvkniieJ
+
+
+You can see all of the archived tweets from this account at:
+(bit.ly/patriotcoburn) (12/13)
+(bit.ly/patriotcoburn)
+https://bit.ly/patriotcoburn
+IMG: script-twitter-power-search-tools-and-bookmarklets-12.jpg
+
+
+Twitter Power Search Tools and Bookmarklets
+Pastebin: pastebin.com/Y9YSYUBf
+Archive: archive.fo/eQ8Kr
+Wayback: bit.ly/2OSknlt (13/13)
+
+IMG: script-twitter-power-search-tools-and-bookmarklets-1.jpg
+

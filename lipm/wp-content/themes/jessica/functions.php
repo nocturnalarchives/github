@@ -578,11 +578,6 @@ function schema_org_markup() {
     echo 'itemscope="itemscope" itemtype="' . $schema . $type . '"';
 }
 
-add_action( 'wp_head', 'atlasws_schema' );
-function atlaswsschema(){
-	 schema_org_markup();
-	 language_attributes();
-}
 
 /**
  * Auto Complete all WooCommerce orders.
