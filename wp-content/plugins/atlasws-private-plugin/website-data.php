@@ -35,7 +35,6 @@ $GLOBALS['woocommerce_enable_atlasws'] = false;
 $GLOBALS['woocols'] = 30;
 $GLOBALS['woocolumns'] = 5;
 $GLOBALS['defaultfilesizes'] = true;
-$GLOBALS['additionalcss'] = "";
 // endfold
 
 // 4.0.1 Domain Checks /
@@ -225,7 +224,7 @@ $GLOBALS['additionalcss'] = "";
     // fold
     if ($aws_domain == "longislandpromotional.com"){
         //set the GTM ID
-        $GLOBALS['aws_gtm'] = "GTM-59K49DK";
+        $GLOBALS['aws_gtm'] = "GTM-W74ZHLV";
         $GLOBALS['woocommerce_enable_atlasws'] = true;
         $GLOBALS['woocols'] = 30;
         $GLOBALS['woocolumns'] = 5;
@@ -254,9 +253,9 @@ $GLOBALS['additionalcss'] = "";
 
     // LongIslandShirt.com
     // fold
-    if ($aws_domain == "longislandpromotional.com"){
+    if ($aws_domain == "longislandshirt.com"){
         //set the GTM ID
-        $GLOBALS['aws_gtm'] = "GTM-59K49DK";
+        $GLOBALS['aws_gtm'] = "GTM-W74ZHLV";
         $GLOBALS['woocommerce_enable_atlasws'] = true;
         $GLOBALS['woocols'] = 30;
         $GLOBALS['woocolumns'] = 5;

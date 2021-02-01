@@ -435,7 +435,6 @@ function single_post_featured_image() { // Add the Featured Image on single post
 // 2.2.5 Displays the date in footer for spider and crawling tracking
 function displaydate(){ // displays todays date in the footer
 	return date('Y-M j');
-	if($GLOBALS['additionalcss'] != ""){displayadditionalcss();}
 }
 
 // 2.2.6 Takes care of things we need to do in the head of the post
@@ -865,12 +864,6 @@ function remove_date($post_info) {
 	//$post_info = 'by [post_author_posts_link] [post_comments] [post_edit]';
 	$post_info = "";
 	return $post_info;
-}
-
-function displayadditionalcss(){
-	if($GLOBALS['additionalcss'] != ""){
-		echo "<style>".$GLOBALS['additionalcss']."</style>";
-	}
 }
 
 // 4.0.0 is in website-data.php
