@@ -206,10 +206,8 @@ function post_updater($aws_debug_flag){
 		}
 	}
 
-
-
-
 	$aws_debug_flag = false;
+	//$aws_debug_flag = true;
 	$uudate = false;
 	$cyear = false; //keeps the post in the current year
 	$cmonth = false; //keeps the post in the current month
@@ -223,7 +221,7 @@ function post_updater($aws_debug_flag){
 	$table_pre = $wpdb->prefix ; // gets the prefix for the WP tables
 	$p_table = $table_pre . "posts"; // builds tha name of the posts table
 	$oold = 180; //this is the maximum days old a post can be
-	$daysold = (current_time(timestamp) - get_the_time('U') - (get_settings('gmt_offset')))/(24*60*60); //how many days old is this post
+	$daysold = (current_time('timestamp') - get_the_time('U') - (get_settings('gmt_offset')))/(24*60*60); //how many days old is this post
 	$postdate = date("F d, Y",get_the_time('U')); //converts the post date to M-D-Y format
 	$u_modified_time = get_the_modified_time('U'); // gets the post last modified time
 	$u_post_time = get_the_time('U'); // gets the post published time
@@ -267,7 +265,7 @@ function post_updater($aws_debug_flag){
 
 	// This activates on the CM tag (Current month) it keeps posts in the current month after the 11th day
 	if($cmonth){ //is the keep in current month flag true
-		if(date(j)>7){ //wait until after the 7th day of the month
+		if(date('j')>7){ //wait until after the 7th day of the month
 			//this makes sure we don't accidentally future date a post
 			if($daysold >7){ //check to see if the post is more than 10 days old
 				$uudate = true; //flag to say we're doing a date update
@@ -278,13 +276,13 @@ function post_updater($aws_debug_flag){
 
 
 	if ($cyear){ // checks to see if the post has the 'cyear' flag, this means the post must be in the current year.
-		$cy = date(Y); // sets 'cy' to the current year
+		$cy = date('Y'); // sets 'cy' to the current year
 		$py = substr($postdate,-4); // sets 'py' to the year of the post -4 days to give us some padding.
 		If ($py != $cy){ // check to see if the post year is not equal to the current year, if it's not we need to update it
-			If (date(M) != "Jan"){ // if the current month is not January we can bump the date by up to 10 days
+			If (date('M') != "Jan"){ // if the current month is not January we can bump the date by up to 10 days
 				$oold=10;	// We can bump the days by up to 10 days
 			}else{ // if the current month is January we won't bump the date until we are into the month
-				If(date(j)>20){ // If it is January we have to wait until after the 20th to bump the date
+				If(date('j')>20){ // If it is January we have to wait until after the 20th to bump the date
 					$oold=7; // We can bump the days by up to 7 days
 				}
 			}
@@ -344,10 +342,6 @@ function post_updater($aws_debug_flag){
 		echo"<br>uudate: ".$uudate;
 	}
 
-
-
-
-
 	if ($uudate) { // checks to see if we're allowed to update this post.
 		if ($daysold > $oold OR $umod == true OR $atlasws_bdate == true OR $atlasws_overdate > 0 ){ // if this post is older than the maximum days old or the last modified time is later we're going to do an update
 			if (!has_tag('nupd')){ // the NUPD tag says don't do an update
@@ -367,12 +361,15 @@ function post_updater($aws_debug_flag){
 					if ($aws_debug_flag){echo "<br>new nd: ".$nd;} // debug information
 				}	// set the new time to be the last modified time
 				if($atlasws_overdate > 0){ $nd = $atlasws_overdate;} // if the override date exists use it
-				$today = getdate($nd); //set up an array of time date values
+				//$today = getdate($nd); //set up an array of time date values
 
 				//write the new date to the database
 				global $id, $wpdb; //get postid, and set up WP db connection
 				//extract and build new timestamp from array
-				$new_time = $today[year].'-'.$today[mon].'-'.$today[mday].' '.$today[hours].':'.$today[minutes].':'.$today[seconds].'';
+
+				$datenowvalue = strtotime('now');
+				$new_time = date("Y-m-d h:i:s", $datenowvalue);
+				//$new_time = $today[year].'-'.$today[mon].'-'.$today[mday].' '.$today[hours].':'.$today[minutes].':'.$today[seconds].'';
 				if ($aws_debug_flag){echo "<br>NT: ".$new_time;}
 				$post_id = $id; //post_id
 				$querystr = "UPDATE ".$p_table." SET post_date = '".$new_time."' WHERE ID = '".$post_id."'"; //build querystring makes debugging easier
@@ -418,7 +415,177 @@ function post_updater($aws_debug_flag){
 			}
 		}
   }
+	long_term_post_updater($aws_debug_flag);
 }
+
+// 2.2.3.1 Long Term Date Updateter For Other Posts
+function long_term_post_updater($aws_debug_flag){
+	$aws_debug_flag = false;
+	$aws_debug_flag = true;
+	global $wpdb; //get postid, and set up WP db connection
+	$monthnow = atlasgetmonth('now');
+	//if ($aws_debug_flag){echo "<br />" .__LINE__. "monthnow " . $monthnow;}
+	if($monthnow != "01" && $monthnow != "1"){
+		$results = $wpdb->get_results("select term_id from wp_terms where name = 'cy'");
+		if($results){
+	    foreach( $results as $result ) {
+	        $cy = $result->term_id;
+	    } //end foreach
+		}
+		$GLOBALS['atlaslongtermdateupdnum'] = 0;
+		action_long_term_post_updater_get_posts($aws_debug_flag,$cy,"cy");
+		$results = $wpdb->get_results("select term_id from wp_terms where name = 'cm'");
+		if($results){
+	    foreach( $results as $result ) {
+	        $cm = $result->term_id;
+	    } //end foreach
+		}
+		action_long_term_post_updater_get_posts($aws_debug_flag,$cm,"cm");
+	}
+	if ($aws_debug_flag){
+		if($GLOBALS['atlaslongtermdateupdnum']>0){
+			//echo "<br />" .__LINE__. " still updating " ;
+		}else{
+			//echo "<br />" .__LINE__. " all posts updated " ;
+		}
+	}
+}
+
+// 2.2.3.2 Long Term Date Updateter For Other Posts
+function action_long_term_post_updater_get_posts($aws_debug_flag,$termid,$term){
+	//$aws_debug_flag = false;
+	//$aws_debug_flag = true;
+	global $wpdb; //get postid, and set up WP db connection
+	$query = "SELECT object_id FROM wp_term_relationships where term_taxonomy_id = '".$termid."' order by object_id asc";
+	//$query = "SELECT object_id FROM wp_term_relationships where term_taxonomy_id = '".$termid."' order by object_id asc limit 5";
+	//if ($aws_debug_flag){echo "<br />" .__LINE__. "query " . $query;}
+	$results = $wpdb->get_results($query);
+	if($results){
+    foreach( $results as $result ) {
+      $postid = $result->object_id;
+			if($term == "cy"){action_long_term_post_updater_get_post_date_year($aws_debug_flag,$postid,$term);}
+			if($term == "cm"){action_long_term_post_updater_get_post_date_month($aws_debug_flag,$postid,$term);}
+    } //end foreach
+	}
+}
+
+// 2.2.3.3 Long Term Date Updateter For Other Posts
+function action_long_term_post_updater_get_post_date_year($aws_debug_flag,$postid,$term){
+	//$aws_debug_flag = false;
+	//$aws_debug_flag = true;
+	global $wpdb; //get postid, and set up WP db connection
+	$query = "SELECT post_date FROM wp_posts where ID = '".$postid."' and post_type = 'post' ";
+	//if ($aws_debug_flag){echo "<br />" .__LINE__. "query " . $query;}
+	$results = $wpdb->get_results($query);
+	if($results){
+    foreach( $results as $result ) {
+      $postdate = $result->post_date;
+			//if ($aws_debug_flag){echo "<br />" .__LINE__. "date " . $postdate;}
+			$thisyear = date('Y'); // sets thisyear to the current year
+			$postyear = atlasgetyear($postdate); // sets postyear to the year of the post
+			//if ($aws_debug_flag){echo "<br />" .__LINE__. "thisyear " . $thisyear;}
+			//if ($aws_debug_flag){echo "<br />" .__LINE__. "postyear " . $postyear;}
+			if($GLOBALS['atlaslongtermdateupdnum'] < $GLOBALS['atlaslongtermdatechecknum']){
+				if($postyear < $thisyear){
+					$daysold = atlasgetdaysold($postdate);
+					//$oldbumpdays = $GLOBALS['atlasbumpdays'];
+					//if($daysold > $GLOBALS['atlasbigbumpdays']){$GLOBALS['atlasbumpdays'] = $GLOBALS['atlasbigbumpdays'];}
+					//if ($aws_debug_flag){echo "<br />" .__LINE__. " postid ". $postid . " daysold ". $daysold;}
+					action_bump_post_date($aws_debug_flag,$postid,$postdate,$GLOBALS['atlasbumpdays']);
+					//$GLOBALS['atlasbumpdays'] = $oldbumpdays;
+				}
+			}else{
+				$GLOBALS['atlaslongtermdateupdovernum']++;
+				if($GLOBALS['atlaslongtermdateupdovernum'] > $GLOBALS['atlaslongtermdateupdoverresetnum']){
+					$GLOBALS['atlaslongtermdateupdnum'] = 0;
+					$GLOBALS['atlaslongtermdateupdovernum'] = 0;
+					//if ($aws_debug_flag){echo "<br />" .__LINE__. "do more updates " ;}
+				}
+			}
+    } //end foreach
+	}
+}
+
+// 2.2.3.3.1 Long Term Date Updateter For Other Posts
+function action_long_term_post_updater_get_post_date_month($aws_debug_flag,$postid,$term){
+	//$aws_debug_flag = false;
+	//$aws_debug_flag = true;
+	global $wpdb; //get postid, and set up WP db connection
+	$query = "SELECT post_date FROM wp_posts where ID = '".$postid."' and post_type = 'post'";
+	//if ($aws_debug_flag){echo "<br />" .__LINE__. "query " . $query;}
+	$results = $wpdb->get_results($query);
+	if($results){
+    foreach( $results as $result ) {
+      $postdate = $result->post_date;
+			$daysold = atlasgetdaysold($postdate);
+			if($GLOBALS['atlaslongtermdateupdnum'] < $GLOBALS['atlaslongtermdatechecknum']){
+				if($daysold >60){
+					//if ($aws_debug_flag){echo "<br />" .__LINE__. " postid ". $postid . " daysold ". $daysold;}
+					action_bump_post_date($aws_debug_flag,$postid,$postdate,$GLOBALS['atlasbumpdays']);
+				}
+			}
+    } //end foreach
+	}
+}
+
+
+// 2.2.3.4 bump post date
+function action_bump_post_date($aws_debug_flag,$postid,$postdate,$bumpdays){
+	//$aws_debug_flag = false;
+	//$aws_debug_flag = true;
+	//if ($aws_debug_flag){echo "<br />" .__LINE__. "postdate " . $postdate;}
+	$maxdate = strtotime("-".$bumpdays." days", strtotime(now));
+	$postdate = strtotime("+".$bumpdays." days", strtotime($postdate));
+	if($postdate > $maxdate){$postdate = $maxdate;}
+  $postdate = date("Y-m-d h:i:s", $postdate);
+	//if ($aws_debug_flag){echo "<br />" .__LINE__. "maxdate " . date("Y-m-d h:i:s", $maxdate);}
+	//if ($aws_debug_flag){echo "<br />" .__LINE__. " ID " .$postid. " postdate " . $postdate;}
+	action_do_new_post_date($aws_debug_flag,$postid,$postdate);
+}
+
+// 2.2.3.5 bump post date
+function action_do_new_post_date($aws_debug_flag,$postid,$postdate){
+	//$aws_debug_flag = false;
+	//$aws_debug_flag = true;
+	global $wpdb; //get postid, and set up WP db connection
+	//if ($aws_debug_flag){echo "<br />" .__LINE__. "postdate " . $postdate;}
+	$querystr = "UPDATE wp_posts SET post_date = '".$postdate."' WHERE ID = '".$postid."'"; //build querystring makes debugging easier
+	//if ($aws_debug_flag){echo "<br>querystr ".$querystr;}
+	$wpdb->query($querystr); //update the db
+	$querystr = "UPDATE wp_posts SET post_modified = '".$postdate."' WHERE ID = '".$postid."'"; //build querystring makes debugging easier
+	//if ($aws_debug_flag){echo "<br>querystr ".$querystr;}
+	$wpdb->query($querystr); //update the db
+	$querystr = "UPDATE wp_posts SET post_modified_gmt = '".$postdate."' WHERE ID = '".$postid."'"; //build querystring makes debugging easier
+	//if ($aws_debug_flag){echo "<br>querystr ".$querystr;}
+	$wpdb->query($querystr); //update the db
+	$querystr = "UPDATE wp_posts SET post_date_gmt = '".$postdate."' WHERE ID = '".$postid."'"; //build querystring makes debugging easier
+	//if ($aws_debug_flag){echo "<br>querystr ".$querystr;}
+	$wpdb->query($querystr); //update the db
+	$GLOBALS['atlaslongtermdateupdnum']++;
+	//if ($aws_debug_flag){echo "<br>count ".$GLOBALS['atlaslongtermdateupdnum'];}
+}
+
+function atlasgetyear($date) {
+		$dateValue = strtotime($date);
+  	$year = date("Y", $dateValue);
+    return $year;
+}
+
+function atlasgetmonth($date) {
+	$dateValue = strtotime($date);
+	$month = date("m", $dateValue);
+	return $month;
+}
+
+function atlasgetdaysold($date){
+	$datenowvalue = strtotime('now');
+	$datevalue = strtotime($date);
+	$diff = $datenowvalue - $datevalue;
+	$daysold = $diff/(24*60*60);
+	//echo "<br />" .__LINE__. " " . $daysold;
+	return $daysold;
+}
+
 
 // 2.2.4 Add The Featured Image to Single Post Pages
 function single_post_featured_image() { // Add the Featured Image on single post pages

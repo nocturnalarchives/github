@@ -35,6 +35,16 @@ $GLOBALS['woocommerce_enable_atlasws'] = false;
 $GLOBALS['woocols'] = 30;
 $GLOBALS['woocolumns'] = 5;
 $GLOBALS['defaultfilesizes'] = true;
+$GLOBALS['atlaslongtermdatecheck'] = true;
+$GLOBALS['atlaslongtermdateyearcheck'] = false;
+$GLOBALS['atlaslongtermdatemonthcheck'] = false;
+$GLOBALS['atlaslongtermdatechecknum'] = 5;
+$GLOBALS['atlaslongtermdatechecknum'] = 10;
+$GLOBALS['atlaslongtermdateupdnum'] = 0;
+$GLOBALS['atlasbumpdays'] = 30;
+$GLOBALS['atlasbigbumpdays'] = 100;
+$GLOBALS['atlaslongtermdateupdovernum'] = 0;
+$GLOBALS['atlaslongtermdateupdoverresetnum'] = 10;
 // endfold
 
 // 4.0.1 Domain Checks /
@@ -208,7 +218,7 @@ $GLOBALS['defaultfilesizes'] = true;
     // fold
     if ($aws_domain == "literallyracist.com"){
         //set the GTM ID
-        $GLOBALS['aws_gtm'] = "GTM-MBBVXQX";
+        $GLOBALS['aws_gtm'] = "GTM-TQNGQXD";
 
         //Site Based Options
         remove_action( 'genesis_before_content_sidebar_wrap', 'genesis_do_breadcrumbs' ); //remove existing bredcrumb position
