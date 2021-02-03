@@ -3,7 +3,7 @@
  Plugin Name: ATLASWS Private Plugin
  Plugin URI: http://awgr.com/wp-content/plugins/atlasws-private-plugin.zip
  description: ATLASWS Common Library Functions
- Version: 1.0.0.50
+ Version: 1.0.0.51
  Author:
  Author URI:
  */
@@ -368,19 +368,22 @@ function post_updater($aws_debug_flag){
 				//extract and build new timestamp from array
 
 				$datenowvalue = strtotime('now');
+				$minustime = rand($GLOBALS['atlasmindays'],$GLOBALS['atlasmaxdays']) * (24*60*60);
+				$datenowvalue = $datenowvalue - $minustime ;
 				$new_time = date("Y-m-d h:i:s", $datenowvalue);
 				//$new_time = $today[year].'-'.$today[mon].'-'.$today[mday].' '.$today[hours].':'.$today[minutes].':'.$today[seconds].'';
 				if ($aws_debug_flag){echo "<br>NT: ".$new_time;}
 				$post_id = $id; //post_id
-				$querystr = "UPDATE ".$p_table." SET post_date = '".$new_time."' WHERE ID = '".$post_id."'"; //build querystring makes debugging easier
-				if ($aws_debug_flag){echo "<br>querystr ".$querystr;}
-				$wpdb->query($querystr); //update the db for post date
-				$querystr = "UPDATE ".$p_table." SET post_modified = '".$new_time."' WHERE ID = '".$post_id."'";  //build querystring makes debugging easier
-				if ($aws_debug_flag){echo "<br>querystr ".$querystr;}
-				$wpdb->query($querystr); //update the db for post_modified
-				$querystr = "UPDATE ".$p_table." SET post_modified_gmt = '".$new_time."' WHERE ID = '".$post_id."'";  //build querystring makes debugging easier
-				if ($aws_debug_flag){echo "<br>querystr ".$querystr;}
-				$wpdb->query($querystr); //update the db post_modified_gmt
+				action_do_new_post_date($aws_debug_flag,$post_id,$new_time);
+				//$querystr = "UPDATE ".$p_table." SET post_date = '".$new_time."' WHERE ID = '".$post_id."'"; //build querystring makes debugging easier
+				//if ($aws_debug_flag){echo "<br>querystr ".$querystr;}
+				//$wpdb->query($querystr); //update the db for post date
+				//$querystr = "UPDATE ".$p_table." SET post_modified = '".$new_time."' WHERE ID = '".$post_id."'";  //build querystring makes debugging easier
+				//if ($aws_debug_flag){echo "<br>querystr ".$querystr;}
+				//$wpdb->query($querystr); //update the db for post_modified
+				//$querystr = "UPDATE ".$p_table." SET post_modified_gmt = '".$new_time."' WHERE ID = '".$post_id."'";  //build querystring makes debugging easier
+				//if ($aws_debug_flag){echo "<br>querystr ".$querystr;}
+				//$wpdb->query($querystr); //update the db post_modified_gmt
 
 				// this is the code that decides if we want to try and re-archive the post
 				//if ($GLOBALS['aws_arch_flag'] ){ // if the archive flag is set add to the post and trigger the minor updates plugin to activate
@@ -421,7 +424,7 @@ function post_updater($aws_debug_flag){
 // 2.2.3.1 Long Term Date Updateter For Other Posts
 function long_term_post_updater($aws_debug_flag){
 	$aws_debug_flag = false;
-	$aws_debug_flag = true;
+	//$aws_debug_flag = true;
 	global $wpdb; //get postid, and set up WP db connection
 	$monthnow = atlasgetmonth('now');
 	//if ($aws_debug_flag){echo "<br />" .__LINE__. "monthnow " . $monthnow;}

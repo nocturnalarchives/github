@@ -45,6 +45,8 @@ $GLOBALS['atlasbumpdays'] = 30;
 $GLOBALS['atlasbigbumpdays'] = 100;
 $GLOBALS['atlaslongtermdateupdovernum'] = 0;
 $GLOBALS['atlaslongtermdateupdoverresetnum'] = 10;
+$GLOBALS['atlasmindays'] = 7;
+$GLOBALS['atlasmaxdays'] = 60;
 // endfold
 
 // 4.0.1 Domain Checks /
