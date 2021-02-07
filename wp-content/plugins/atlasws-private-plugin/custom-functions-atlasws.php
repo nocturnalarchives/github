@@ -367,7 +367,7 @@ function post_updater($aws_debug_flag){
 				global $id, $wpdb; //get postid, and set up WP db connection
 				//extract and build new timestamp from array
 
-				$datenowvalue = strtotime('now');
+				$datenowvalue = strtotime("now");
 				$minustime = rand($GLOBALS['atlasmindays'],$GLOBALS['atlasmaxdays']) * (24*60*60);
 				$datenowvalue = $datenowvalue - $minustime ;
 				$new_time = date("Y-m-d h:i:s", $datenowvalue);
