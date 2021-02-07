@@ -60,14 +60,12 @@ $GLOBALS['atlasmaxdays'] = 60;
     }
     // endfold
 
-
     //8L3.com
     // fold
     if ($aws_domain == "8l3.com"){
 
     }
     // endfold
-
 
     // AdvertiserBlockList.com
     // fold
@@ -359,7 +357,6 @@ $GLOBALS['atlasmaxdays'] = 60;
 
     // endfold
 
-
     // Taylor-Lorenz.net
     // fold
     if ($aws_domain == "taylor-lorenz.net"){
@@ -370,7 +367,6 @@ $GLOBALS['atlasmaxdays'] = 60;
     }
     // endfold
 
-
     // WPIR-org
     // fold
     if ($aws_domain == "whiteprivilegeisntreal.org"){
@@ -380,8 +376,6 @@ $GLOBALS['atlasmaxdays'] = 60;
         $GLOBALS['aws_arch_flag'] = TRUE; //when the date update runs modify the post enough to trigger the minor edits plugin and re-archive the posts
     }
     // endfold
-
-
 
     // zxpqst.com
     // fold
