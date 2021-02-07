@@ -3,7 +3,7 @@
  Plugin Name: ATLASWS Private Plugin
  Plugin URI: http://awgr.com/wp-content/plugins/atlasws-private-plugin.zip
  description: ATLASWS Common Library Functions
- Version: 1.0.0.51
+ Version: 1.0.0.52
  Author:
  Author URI:
  */
@@ -375,26 +375,8 @@ function post_updater($aws_debug_flag){
 				if ($aws_debug_flag){echo "<br>NT: ".$new_time;}
 				$post_id = $id; //post_id
 				action_do_new_post_date($aws_debug_flag,$post_id,$new_time);
-				//$querystr = "UPDATE ".$p_table." SET post_date = '".$new_time."' WHERE ID = '".$post_id."'"; //build querystring makes debugging easier
-				//if ($aws_debug_flag){echo "<br>querystr ".$querystr;}
-				//$wpdb->query($querystr); //update the db for post date
-				//$querystr = "UPDATE ".$p_table." SET post_modified = '".$new_time."' WHERE ID = '".$post_id."'";  //build querystring makes debugging easier
-				//if ($aws_debug_flag){echo "<br>querystr ".$querystr;}
-				//$wpdb->query($querystr); //update the db for post_modified
-				//$querystr = "UPDATE ".$p_table." SET post_modified_gmt = '".$new_time."' WHERE ID = '".$post_id."'";  //build querystring makes debugging easier
-				//if ($aws_debug_flag){echo "<br>querystr ".$querystr;}
-				//$wpdb->query($querystr); //update the db post_modified_gmt
 
-				// this is the code that decides if we want to try and re-archive the post
-				//if ($GLOBALS['aws_arch_flag'] ){ // if the archive flag is set add to the post and trigger the minor updates plugin to activate
-					//$content_post = get_post($post_id); //set up to get content
-					//$aws_temp_content  = get_post_field('post_content', $post_id); // get the content
-					//$aws_temp_content  = str_replace("          ","",$aws_temp_content); //if we have 10 spaces at the end clean them to to keep things from becoming a mess;
-					//$aws_temp_content = $aws_temp_content. "     "; // add 5 spaces onto the end.
-					//$querystr = "UPDATE ".$p_table." SET post_content = ".$aws_temp_content." WHERE ID = '".$post_id."'";  //build querystring makes debugging easier
-					//if ($aws_debug_flag){echo "<br>querystr ".$querystr;}
-					//$wpdb->query($querystr); //update the db post_modified_gmt
-				//}
+
 
 
 
@@ -566,6 +548,21 @@ function action_do_new_post_date($aws_debug_flag,$postid,$postdate){
 	$wpdb->query($querystr); //update the db
 	$GLOBALS['atlaslongtermdateupdnum']++;
 	//if ($aws_debug_flag){echo "<br>count ".$GLOBALS['atlaslongtermdateupdnum'];}
+	if ($GLOBALS['aws_arch_flag'] ){
+		action_aws_trigger_minor_edit_rearchive($aws_debug_flag,$postid);}
+}
+
+// 2.2.3.6 fake post modification to trigger rearchive
+function action_aws_trigger_minor_edit_rearchive($aws_debug_flag,$postid){
+	if ($GLOBALS['aws_arch_flag'] ){ // if the archive flag is set add to the post and trigger the minor updates plugin to activate
+	  $content_post = get_post($post_id); //set up to get content
+	  $aws_temp_content  = get_post_field('post_content', $post_id); // get the content
+	  $aws_temp_content  = str_replace("          ","",$aws_temp_content); //if we have 10 spaces at the end clean them to to keep things from becoming a mess;
+		$aws_temp_content  = str_replace("          ","",$aws_temp_content);
+	  $aws_temp_content = $aws_temp_content. "     "; // add 5 spaces onto the end.
+	  $querystr = "UPDATE ".$p_table." SET post_content = ".$aws_temp_content." WHERE ID = '".$post_id."'";  //build querystring makes debugging easier
+	  $wpdb->query($querystr); //update the db post_modified_gmt
+	}
 }
 
 function atlasgetyear($date) {

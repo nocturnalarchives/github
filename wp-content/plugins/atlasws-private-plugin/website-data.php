@@ -73,12 +73,10 @@ $GLOBALS['atlasmaxdays'] = 60;
     // fold
     if ($aws_domain == "advertiserblocklist.com"){
         //set the GTM ID
-        $GLOBALS['aws_gtm'] = "GTM-NR4L96T";
-
+        $GLOBALS['aws_gtm'] = "GTM-N9F78X7";
+        $GLOBALS['aws_arch_flag'] = TRUE; //when the date update runs modify the post enough to trigger the minor edits plugin and re-archive the posts
     }
     // endfold
-
-
 
     // AmandasBakery.com
     // fold
@@ -90,8 +88,6 @@ $GLOBALS['atlasmaxdays'] = 60;
     }
     // endfold
 
-
-
     // Atlasws.net
     // fold
     if ($aws_domain == "atlasws.net"){
@@ -100,8 +96,6 @@ $GLOBALS['atlasmaxdays'] = 60;
 
     }
     // endfold
-
-
 
     // AWGR.com
     // fold
@@ -146,7 +140,6 @@ $GLOBALS['atlasmaxdays'] = 60;
 
     // endfold
 
-
     // CulinaryReviewer.com
     // fold
     if ($aws_domain == "culinaryreviewer.com"){
@@ -160,19 +153,6 @@ $GLOBALS['atlasmaxdays'] = 60;
 
     // endfold
 
-
-
-    // DoodleWatcher.com
-    // fold
-    if ($aws_domain == "doodlewatcher.com"){
-        //set the GTM ID
-        $GLOBALS['aws_gtm'] = "GTM-TPVCNJR";
-
-    }
-    // endfold
-
-
-
     // GraywolfSEO.com
     // fold
     if ($aws_domain == "graywolfseo.com"){
@@ -182,8 +162,6 @@ $GLOBALS['atlasmaxdays'] = 60;
         $GLOBALS['aws_arch_flag'] = TRUE; //when the date update runs modify the post enough to trigger the minor edits plugin and re-archive the posts
     }
     // endfold
-
-
 
     // Kathika.com
     // fold
@@ -214,14 +192,12 @@ $GLOBALS['atlasmaxdays'] = 60;
     }
     // endfold
 
-
-
     // LiterallyRacist.com
     // fold
     if ($aws_domain == "literallyracist.com"){
         //set the GTM ID
         $GLOBALS['aws_gtm'] = "GTM-TQNGQXD";
-
+        $GLOBALS['aws_arch_flag'] = TRUE; //when the date update runs modify the post enough to trigger the minor edits plugin and re-archive the posts
         //Site Based Options
         remove_action( 'genesis_before_content_sidebar_wrap', 'genesis_do_breadcrumbs' ); //remove existing bredcrumb position
     	add_action( 'genesis_entry_header', 'genesis_do_breadcrumbs', 12 ); //move it to under the heading
@@ -229,8 +205,6 @@ $GLOBALS['atlasmaxdays'] = 60;
     	$GLOBALS['aws_home_frequent'] = true; //Don't let the homepage get old
     }
     // endfold
-
-
 
     // LongIslandPromotional.com
     // fold
@@ -245,6 +219,7 @@ $GLOBALS['atlasmaxdays'] = 60;
         $GLOBALS['woocrosssellnum'] = 4;
 
         //Site Based Options
+        $GLOBALS['aws_arch_flag'] = TRUE; //when the date update runs modify the post enough to trigger the minor edits plugin and re-archive the posts
         remove_action( 'genesis_before_content_sidebar_wrap', 'genesis_do_breadcrumbs' ); //remove existing bredcrumb position
     	//add_action( 'genesis_entry_header', 'genesis_do_breadcrumbs', 12 ); //move it to under the heading
     	//$GLOBALS['aws_meta_info_disp'] = true; //we are going to turn off the post meta info in section
@@ -294,7 +269,6 @@ $GLOBALS['atlasmaxdays'] = 60;
     }
     // endfold
 
-
     //MiamiBeachAdvsor.Com
     // fold
     if ($aws_domain == "miamibeachadvisor.com"){
@@ -328,6 +302,28 @@ $GLOBALS['atlasmaxdays'] = 60;
 
     // endfold
 
+    // NocturnalArchives.com
+    // fold
+    if ($aws_domain == "nocturnalarchives.com"){
+        //set the GTM ID
+        $GLOBALS['aws_gtm'] = "GTM-TSD7H98";
+        $GLOBALS['aws_arch_flag'] = TRUE; //when the date update runs modify the post enough to trigger the minor edits plugin and re-archive the posts
+    	$GLOBALS['aws_home_frequent'] = true; //Don't let the homepage get old
+    	$GLOBALS['meme_author_id'] = 5; // MEME AUTHOR
+    }
+
+    // endfold
+
+    // OcasioMemes.com
+    // fold
+    if ($aws_domain == "ocasiomemes.com"){
+        //set the GTM ID
+        $GLOBALS['aws_gtm'] = "GTM-KB3BWTF";
+        $GLOBALS['aws_arch_flag'] = TRUE; //when the date update runs modify the post enough to trigger the minor edits plugin and re-archive the posts
+        $GLOBALS['aws_home_frequent'] = true; //Don't let the homepage get old
+        $GLOBALS['meme_author_id'] = 4; // MEME AUTHOR
+    }
+    // endfold
 
     // PatriotMinear.com
     // fold
@@ -342,52 +338,12 @@ $GLOBALS['atlasmaxdays'] = 60;
 
     // endfold
 
-
     // PatriotMinear.net
     // fold
     if ($aws_domain == "patriotminear.net"){
         //set the GTM ID
         $GLOBALS['aws_gtm'] = "GTM-N5NSHHC";
-
-
-    }
-    // endfold
-
-
-
-    // NocturnalArchives.com
-    // fold
-    if ($aws_domain == "nocturnalarchives.com"){
-        //set the GTM ID
-        //$GLOBALS['aws_gtm'] = "GTM-KB3BWTF";
         $GLOBALS['aws_arch_flag'] = TRUE; //when the date update runs modify the post enough to trigger the minor edits plugin and re-archive the posts
-        $GLOBALS['aws_home_frequent'] = true; //Don't let the homepage get old
-        $GLOBALS['parody_notice_check'] = true;
-        $GLOBALS['archive_website'] = true;
-        $GLOBALS['meme_author_id'] = 5;
-    }
-
-    // endfold
-
-
-    // OcasioMemes.com
-    // fold
-    if ($aws_domain == "ocasiomemes.com"){
-        //set the GTM ID
-        $GLOBALS['aws_gtm'] = "GTM-KB3BWTF";
-        $GLOBALS['aws_arch_flag'] = TRUE; //when the date update runs modify the post enough to trigger the minor edits plugin and re-archive the posts
-        $GLOBALS['aws_home_frequent'] = true; //Don't let the homepage get old
-        $GLOBALS['meme_author_id'] = 4; // MEME AUTHOR
-    }
-    // endfold
-
-
-
-    // SevenPack.net
-    // fold
-    if ($aws_domain == "sevenpack.net"){
-        //set the GTM ID
-        $GLOBALS['aws_gtm'] = "GTM-M7MBTP5";
 
     }
     // endfold
@@ -406,7 +362,7 @@ $GLOBALS['atlasmaxdays'] = 60;
     // endfold
 
 
-    // Taylor-Lorenz.com
+    // Taylor-Lorenz.net
     // fold
     if ($aws_domain == "taylor-lorenz.net"){
         //set the GTM ID
@@ -417,24 +373,13 @@ $GLOBALS['atlasmaxdays'] = 60;
     // endfold
 
 
-
-    //WDLD-com
-    // fold
-    if ($aws_domain == "whodoesntlovedogs.com"){
-        //set the GTM ID
-        $GLOBALS['aws_gtm'] = "GTM-MCBCJL3";
-    }
-    // endfold
-
-
-
     // WPIR-org
     // fold
     if ($aws_domain == "whiteprivilegeisntreal.org"){
         //set the GTM ID
         $GLOBALS['aws_gtm'] = "GTM-PCLZ2ZP";
         $GLOBALS['aws_home_frequent'] = true; //Don't let the homepage get old
-
+        $GLOBALS['aws_arch_flag'] = TRUE; //when the date update runs modify the post enough to trigger the minor edits plugin and re-archive the posts
     }
     // endfold
 

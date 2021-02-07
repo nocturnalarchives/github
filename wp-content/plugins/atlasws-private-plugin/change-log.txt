@@ -6,6 +6,9 @@
 // change version number in JSON file
 // change version number in custom-functions-atlasws.php file
 
+// Version 1.0.0.52
+// revised GTM library IDs
+
 // Version 1.0.0.51
 // revised date update for current post
 
