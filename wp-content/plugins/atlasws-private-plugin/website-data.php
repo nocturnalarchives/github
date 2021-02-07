@@ -342,19 +342,17 @@ $GLOBALS['atlasmaxdays'] = 60;
     // fold
     if ($aws_domain == "patriotminear.net"){
         //set the GTM ID
-        $GLOBALS['aws_gtm'] = "GTM-N5NSHHC";
+        $GLOBALS['aws_gtm'] = "GTM-T995KTG";
         $GLOBALS['aws_arch_flag'] = TRUE; //when the date update runs modify the post enough to trigger the minor edits plugin and re-archive the posts
 
     }
     // endfold
 
-
-
     // Taylor-Lorenz.com
     // fold
     if ($aws_domain == "taylor-lorenz.com"){
         //set the GTM ID
-        $GLOBALS['aws_gtm'] = "GTM-KTJK5MN";
+        $GLOBALS['aws_gtm'] = "GTM-N362PVN";
         $GLOBALS['aws_arch_flag'] = TRUE; //when the date update runs modify the post enough to trigger the minor edits plugin and re-archive the posts
         $GLOBALS['aws_home_frequent'] = true; //Don't let the homepage get old
     }
@@ -366,7 +364,7 @@ $GLOBALS['atlasmaxdays'] = 60;
     // fold
     if ($aws_domain == "taylor-lorenz.net"){
         //set the GTM ID
-        $GLOBALS['aws_gtm'] = "GTM-W4CXSNH";
+        $GLOBALS['aws_gtm'] = "GTM-N362PVN";
         $GLOBALS['aws_arch_flag'] = TRUE; //when the date update runs modify the post enough to trigger the minor edits plugin and re-archive the posts
         $GLOBALS['aws_home_frequent'] = true; //Don't let the homepage get old
     }
