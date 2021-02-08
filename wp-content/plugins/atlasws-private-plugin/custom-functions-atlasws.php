@@ -3,7 +3,7 @@
  Plugin Name: ATLASWS Private Plugin
  Plugin URI: http://awgr.com/wp-content/plugins/atlasws-private-plugin.zip
  description: ATLASWS Common Library Functions
- Version: 1.0.0.52
+ Version: 1.0.0.56
  Author:
  Author URI:
  */
@@ -401,6 +401,9 @@ function post_updater($aws_debug_flag){
 		}
   }
 	long_term_post_updater($aws_debug_flag);
+	if ($GLOBALS['aws_arch_flag'] ){
+		action_aws_trigger_minor_edit_rearchive($aws_debug_flag,date('now'));
+	}
 }
 
 // 2.2.3.1 Long Term Date Updateter For Other Posts
@@ -548,20 +551,26 @@ function action_do_new_post_date($aws_debug_flag,$postid,$postdate){
 	$wpdb->query($querystr); //update the db
 	$GLOBALS['atlaslongtermdateupdnum']++;
 	//if ($aws_debug_flag){echo "<br>count ".$GLOBALS['atlaslongtermdateupdnum'];}
-	if ($GLOBALS['aws_arch_flag'] ){
-		action_aws_trigger_minor_edit_rearchive($aws_debug_flag,$postid);}
+
 }
 
-// 2.2.3.6 fake post modification to trigger rearchive
-function action_aws_trigger_minor_edit_rearchive($aws_debug_flag,$postid){
+// 2.2.3.6 start a rearchive on the 1st of months every three months
+function action_aws_trigger_minor_edit_rearchive($aws_debug_flag,$postdate){
 	if ($GLOBALS['aws_arch_flag'] ){ // if the archive flag is set add to the post and trigger the minor updates plugin to activate
-	  $content_post = get_post($post_id); //set up to get content
-	  $aws_temp_content  = get_post_field('post_content', $post_id); // get the content
-	  $aws_temp_content  = str_replace("          ","",$aws_temp_content); //if we have 10 spaces at the end clean them to to keep things from becoming a mess;
-		$aws_temp_content  = str_replace("          ","",$aws_temp_content);
-	  $aws_temp_content = $aws_temp_content. "     "; // add 5 spaces onto the end.
-	  $querystr = "UPDATE ".$p_table." SET post_content = ".$aws_temp_content." WHERE ID = '".$post_id."'";  //build querystring makes debugging easier
-	  $wpdb->query($querystr); //update the db post_modified_gmt
+		$doaction = false;
+		$month = atlasgetmonthn($postdate);
+		$date = atlasgetdate($postdate);
+		if($date == 1){
+			if($month == 3 || $month == 6 || $month == 9 || $month == 12){
+				$doaction = true;
+			}
+		}
+		if($doaction){
+			$querystr = "delete FROM `wp_options` WHERE option_name like 'wppaiapi_%'";
+			global $wpdb; //get postid, and set up WP db connection
+		  $wpdb->query($querystr); //reset the archive plugin
+		}
+
 	}
 }
 
@@ -575,6 +584,18 @@ function atlasgetmonth($date) {
 	$dateValue = strtotime($date);
 	$month = date("m", $dateValue);
 	return $month;
+}
+
+function atlasgetmonthn($date) {
+	$dateValue = strtotime($date);
+	$month = date("n", $dateValue);
+	return $month;
+}
+
+function atlasgetdate($date) {
+	$dateValue = strtotime($date);
+	$date = date("j", $dateValue);
+	return $date;
 }
 
 function atlasgetdaysold($date){

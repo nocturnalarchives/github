@@ -6,6 +6,18 @@
 // change version number in JSON file
 // change version number in custom-functions-atlasws.php file
 
+// Version 1.0.0.56
+// archive reactivates every three months
+
+// Version 1.0.0.55
+// disabled archive update
+
+// Version 1.0.0.54
+// fixed quote in db update
+
+// Version 1.0.0.53
+// missing db connection
+
 // Version 1.0.0.52
 // revised GTM library IDs
 
