@@ -30,7 +30,7 @@ ga:organicSearches	METRIC	INTEGER	Traffic Sources	Organic Searches	The number of
 ga:adGroup	DIMENSION	STRING	Adwords	Ad Group	The name of your AdWords ad group.	TRUE	text
 ga:adSlot	DIMENSION	STRING	Adwords	Ad Slot	The location of the advertisement on the hosting page (Top, RHS, or not set).	TRUE	text
 ga:adDistributionNetwork	DIMENSION	STRING	Adwords	Ad Distribution Network	The networks used to deliver your ads (Content, Search, Search partners, etc.).		text
-ga:adMatchType	DIMENSION	STRING	Adwords	Query Match Type	The match types applied for the search term the user had input(Phrase, Exact, Broad, etc.). Ads on the content network are identified as "Content network". Details: https://support.google.com/adwords/answer/2472708?hl=en		text
+ga:adMatchType	DIMENSION	STRING	Adwords	Query Match Type	The match types applied for the search term the user had input(Phrase, Exact, Broad, etc.). Ads on the content network are identified as Content network. Details: https://support.google.com/adwords/answer/2472708?hl=en		text
 ga:adKeywordMatchType	DIMENSION	STRING	Adwords	Keyword Match Type	The match types applied to your keywords (Phrase, Exact, Broad). Details: https://support.google.com/adwords/answer/2472708?hl=en		text
 ga:adMatchedQuery	DIMENSION	STRING	Adwords	Matched Search Query	The search queries that triggered impressions of your AdWords ads.		text
 ga:adPlacementDomain	DIMENSION	STRING	Adwords	Placement Domain	The domains where your ads on the content network were placed.		text
@@ -412,4 +412,4 @@ ga:relatedProductQuantity	METRIC	INTEGER	Related Products	Related Product Quanti
 ga:revenuePerUser	METRIC	CURRENCY	Ecommerce	Revenue per User	The total sale revenue provided in the transaction excluding shipping and tax divided by the total number of users.	FALSE	number
 ga:sessionsPerUser	METRIC	FLOAT	User	Number of Sessions per User	The total number of sessions divided by the total number of users.	FALSE	number
 ga:totalRefunds	METRIC	INTEGER	Ecommerce	Refunds	Number of refunds that have been issued (Enhanced Ecommerce).	TRUE	number
-ga:transactionsPerUser	METRIC	FLOAT	Ecommerce	Transactions per User	The total number of transactions divided by the total number of users.	FALSE	number	
+ga:transactionsPerUser	METRIC	FLOAT	Ecommerce	Transactions per User	The total number of transactions divided by the total number of users.	FALSE	number
