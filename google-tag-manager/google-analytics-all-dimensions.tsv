@@ -150,7 +150,7 @@ ga:searchSessions	METRIC	INTEGER	Internal Search	Sessions with Search	The total 
 ga:percentSessionsWithSearch	METRIC	PERCENT	Internal Search	% Sessions with Search	The percentage of sessions with search.		number	ga:searchSessions / ga:sessions
 ga:searchDepth	METRIC	INTEGER	Internal Search	Search Depth	The total number of subsequent page views made after a use of your internal search feature.	TRUE	number
 ga:avgSearchDepth	METRIC	FLOAT	Internal Search	Average Search Depth	The average number of pages people viewed after performing a search.		number	ga:searchDepth / ga:searchUniques
-ga:searchRefinements	METRIC	INTEGER	Internal Search	Search Refinements	The total number of times a refinement (transition) occurs between internal search keywords within a session. For example if the sequence of keywords is: "shoes", "shoes", "pants", "pants", this metric will be one because the transition between "shoes" and "pants" is different.	TRUE	number
+ga:searchRefinements	METRIC	INTEGER	Internal Search	Search Refinements	The total number of times a refinement (transition) occurs between internal search keywords within a session. For example if the sequence of keywords is: shoes, shoes, pants, pants, this metric will be one because the transition between shoes and pants is different.	TRUE	number
 ga:percentSearchRefinements	METRIC	PERCENT	Internal Search	% Search Refinements	The percentage of number of times a refinement (i.e., transition) occurs between internal search keywords within a session.		number	ga:searchRefinements / ga:searchResultViews
 ga:searchDuration	METRIC	TIME	Internal Search	Time after Search	The session duration where a use of your internal search feature occurred.	TRUE	number
 ga:avgSearchDuration	METRIC	TIME	Internal Search	Time after Search	The average time (in seconds) users spent on your property after searching.		number	ga:searchDuration / ga:searchUniques
@@ -229,7 +229,7 @@ ga:socialInteractionNetwork	DIMENSION	STRING	Social Interactions	Social Source	F
 ga:socialInteractionAction	DIMENSION	STRING	Social Interactions	Social Action	For social interactions, a value representing the social action being tracked (e.g. +1, bookmark)		text
 ga:socialInteractionNetworkAction	DIMENSION	STRING	Social Interactions	Social Source and Action	For social interactions, a value representing the concatenation of the socialInteractionNetwork and socialInteractionAction action being tracked at this hit level (e.g. Google: +1)		text
 ga:socialInteractionTarget	DIMENSION	STRING	Social Interactions	Social Entity	For social interactions, a value representing the URL (or resource) which receives the social network action.		text
-ga:socialEngagementType	DIMENSION	STRING	Social Interactions	Social Type	Engagement type. Possible values are "Socially Engaged" or "Not Socially Engaged".		text
+ga:socialEngagementType	DIMENSION	STRING	Social Interactions	Social Type	Engagement type. Possible values are Socially Engaged or Not Socially Engaged.		text
 ga:socialInteractions	METRIC	INTEGER	Social Interactions	Social Actions	The total number of social interactions.		number
 ga:uniqueSocialInteractions	METRIC	INTEGER	Social Interactions	Unique Social Actions	The number of sessions during which the specified social action(s) occurred at least once. This is based on the the unique combination of socialInteractionNetwork, socialInteractionAction, and socialInteractionTarget.		number
 ga:socialInteractionsPerSession	METRIC	FLOAT	Social Interactions	Actions Per Social Session	The number of social interactions per session.		number	ga:socialInteractions / ga:uniqueSocialInteractions
@@ -351,7 +351,7 @@ ga:checkoutOptions	DIMENSION	STRING	Ecommerce	Checkout Options	User options spec
 ga:cityId	DIMENSION	STRING	Geo Network	City ID	The city IDs of users, derived from IP addresses or Geographical IDs. The city IDs are the same as the Criteria IDs found at: https://developers.google.com/analytics/devguides/collection/protocol/v1/geoid	FALSE	text
 ga:correlationModelId	DIMENSION	STRING	Related Products	Correlation Model ID	Correlation Model ID for related products.		text
 ga:countryIsoCode	DIMENSION	STRING	Geo Network	Country ISO Code	The country ISO code of users, derived from IP addresses or Geographical IDs. Values are given as an ISO-3166-1 alpha-2 code.	FALSE	text
-ga:dataSource	DIMENSION	STRING	Platform or Device	Data Source	The data source of a hit. By default, hits sent from ga.js and analytics.js are reported as "web". Hits sent from the mobile SDKs are reported as "app". These values can be overridden in the Measurement Protocol.	TRUE	text
+ga:dataSource	DIMENSION	STRING	Platform or Device	Data Source	The data source of a hit. By default, hits sent from ga.js and analytics.js are reported as web. Hits sent from the mobile SDKs are reported as app. These values can be overridden in the Measurement Protocol.	TRUE	text
 ga:internalPromotionCreative	DIMENSION	STRING	Ecommerce	Internal Promotion Creative	The creative content designed for a promotion (Enhanced Ecommerce).	TRUE	text
 ga:internalPromotionId	DIMENSION	STRING	Ecommerce	Internal Promotion ID	The ID of the promotion (Enhanced Ecommerce).	TRUE	text
 ga:internalPromotionName	DIMENSION	STRING	Ecommerce	Internal Promotion Name	The name of the promotion (Enhanced Ecommerce).	TRUE	text
