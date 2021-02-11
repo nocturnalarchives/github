@@ -1,4 +1,4 @@
-id	type	dataType	group	uiName	description	allowedInSegments	_blockspring_type	calculation
+id	type	dataType	group	uiName	description	allowedInSegments	_blockspring_type	calculation  
 ga:userType	DIMENSION	STRING	User	User Type	A boolean indicating if a user is new or returning. Possible values: New Visitor, Returning Visitor.	TRUE	text
 ga:sessionCount	DIMENSION	STRING	User	Count of Sessions	The session index for a user. Each session from a unique user will get its own incremental index starting from 1 for the first session. Subsequent sessions do not change previous session indicies. For example, if a certain user has 4 sessions to your website, sessionCount for that user will have 4 distinct values of '1' through '4'.	TRUE	text
 ga:daysSinceLastSession	DIMENSION	STRING	User	Days Since Last Session	The number of days elapsed since users last visited your property. Used to calculate user loyalty.	TRUE	text
