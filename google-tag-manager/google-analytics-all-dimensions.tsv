@@ -144,7 +144,7 @@ ga:searchStartPage	DIMENSION	STRING	Internal Search	Start Page	A page where the 
 ga:searchDestinationPage	DIMENSION	STRING	Internal Search	Destination Page	The page the user immediately visited after performing an internal search on your site. (Usually the search results page).		text
 ga:searchAfterDestinationPage	DIMENSION	STRING	Internal Search	Search Destination Page	A page that the user visited after performing an internal search on your site.	TRUE	text
 ga:searchResultViews	METRIC	INTEGER	Internal Search	Results Pageviews	The number of times a search result page was viewed after performing a search.		number
-ga:searchUniques	METRIC	INTEGER	Internal Search	Total Unique Searches	The total number of unique keywords from internal searches within a session. For example if "shoes" was searched for 3 times in a session, it will be only counted once.	TRUE	number
+ga:searchUniques	METRIC	INTEGER	Internal Search	Total Unique Searches	The total number of unique keywords from internal searches within a session. For example if shoes was searched for 3 times in a session, it will be only counted once.	TRUE	number
 ga:avgSearchResultViews	METRIC	FLOAT	Internal Search	Results Pageviews / Search	The average number of times people viewed a search results page after performing a search.		number	ga:searchResultViews / ga:searchUniques
 ga:searchSessions	METRIC	INTEGER	Internal Search	Sessions with Search	The total number of sessions that included an internal search	TRUE	number
 ga:percentSessionsWithSearch	METRIC	PERCENT	Internal Search	% Sessions with Search	The percentage of sessions with search.		number	ga:searchSessions / ga:sessions
