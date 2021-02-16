@@ -1,0 +1,78 @@
+# invoke rewrite engine
+RewriteEngine On
+RewriteBase /
+
+# Redirect Entire Domain Keep files and parameters
+RewriteEngine on
+RewriteRule (.*) https://example.com/$1 [R=301,L]
+
+# Redirect Entire Domain drop files and parameters
+RewriteEngine on
+RewriteRule (.*) https://example.com/ [R=301,L]
+
+# Redirect to non www
+RewriteCond %{HTTP_HOST} ^www.yourdomain.com [NC]
+RewriteRule ^(.*)$ http://example.com/$1 [L,R=301]
+
+# Redirect to www
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+# Redirect to HTTPS
+# This must come after the WWW/NON WWW Redirect or it creates a loop
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Redirect HTTPS to HTTP
+RewriteCond %{HTTPS} on
+RewriteRule (.*) http://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# Add a trailing slash (/) to a URL, if the URL did not have a trailing slash before
+RewriteRule ^([^.]*[^/])$ /$1/ [L,R=301]
+
+#Redirect INDEX.HTML to / root level directory
+RewriteRule ^index.html$ / [L,R=301]
+
+#Redirect INDEX.PHP to / root level directory
+RewriteRule ^index.php$ / [L,R=301]
+
+#Redirect DEFAULT.ASP to / root level directory
+RewriteRule ^default.asp$ / [L,R=301]
+
+#Redirect 400,401,403,404,500 to main website
+ErrorDocument 400 https://www.%{HTTP_HOST}/$1
+ErrorDocument 401 https://www.%{HTTP_HOST}/$1
+ErrorDocument 403 https://www.%{HTTP_HOST}/$1
+ErrorDocument 404 https://www.%{HTTP_HOST}/$1
+ErrorDocument 500 https://www.%{HTTP_HOST}/$1
+
+
+# 301 Redirect
+Redirect 301 /oldfile.htm /newfile.htm
+Redirect 301 /oldfile/ /newfile/
+
+# Browser expiration start
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|webp|js|css|swf|x-html|css|xml|js|ttf|svg|eot)(\.gz)?$">
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresDefault A0
+ExpiresByType image/webp A2592000
+ExpiresByType image/gif A2592000
+ExpiresByType image/png A2592000
+ExpiresByType image/jpg A2592000
+ExpiresByType image/jpeg A2592000
+ExpiresByType image/ico A2592000
+ExpiresByType image/svg+xml A2592000
+ExpiresByType text/css A2592000
+ExpiresByType text/javascript A2592000
+ExpiresByType application/javascript A2592000
+ExpiresByType application/x-javascript A2592000
+</IfModule>
+<IfModule mod_headers.c>
+Header set Expires "max-age=2592000, public"
+Header unset ETag
+Header set Connection keep-alive
+FileETag None
+</IfModule>
+</FilesMatch>
+# Browser expiration end
