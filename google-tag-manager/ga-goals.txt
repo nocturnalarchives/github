@@ -1,0 +1,122 @@
+-----------------------------------------------------------------------------------------
+Engaged Users (5+ Pages)
+Pages/Screens Per Session: Greater Than 5
+Value (off)
+
+-----------------------------------------------------------------------------------------
+Highly Engaged Users (10+ Pages)
+Pages/Screens Per Session: Greater Than 10
+Value (off)
+
+-----------------------------------------------------------------------------------------
+High Duration Users (5+ Minutes)
+Duration: Greater Than 5 Minutes
+Value (off)
+
+-----------------------------------------------------------------------------------------
+Extremely High Duration Users (10+ Minutes)
+Duration: Greater Than 10 Minutes
+Value (off)
+
+-----------------------------------------------------------------------------------------
+Form Submission
+Event
+Category: Eqauals to - Form
+Action: Equals to - Submission
+Label: Begins with - gform
+Use event value as goal value
+
+-----------------------------------------------------------------------------------------
+Contact Form 7 Submission
+Event
+Category: Eqauals to - popupforma
+Action: Equals to - submit
+Label: Begins with - cf7submission
+Use event value as goal value
+
+-----------------------------------------------------------------------------------------
+Gravity Form Submission
+Event
+Category: Eqauals to - {leave blank}
+Action: Equals to - Engagement - Form Submission
+Label: Equals to - {leave blank}
+Use event value as goal value
+
+-----------------------------------------------------------------------------------------
+Magento 2 Short Order
+Destination
+Destination Equals to /checkout/onepage/success/
+Value: off
+Funnel: On
+Step 1: Checkout Cart /checkout/cart/ (not required)
+Step 2: Checkout intro /checkout/onepage/
+
+-----------------------------------------------------------------------------------------
+Magento 2 Customer Account Creation
+Customer Creates An Account
+Destination
+Destination: Equals To - /customer/account/
+Value (off)
+Funnel: On
+Create An Account /customer/account/create/ (required)
+Account Created /customer/account/
+
+-----------------------------------------------------------------------------------------
+Magento 2 Customer Logs Into Account
+Customer Logs Into Account
+Destination
+Destination: Equals To - /customer/account/
+Value (off)
+Funnel: On
+Login /customer/account/login/ (required)
+Login Success /customer/account/
+
+
+-----------------------------------------------------------------------------------------
+Magento 2 Long Order
+Destination
+Destination Equals to /checkout/onepage/success/
+Value: off
+Funnel: On
+Step 1: Checkout Cart /checkout/cart/ (not required)
+Step 2: Checkout intro /checkout/onepage/
+Step 3: Billing address /checkout/onepage/billing/
+Step 4: Shipping address /checkout/onepage/shipping/
+Step 5: Shipping method /checkout/onepage/shipping_method/
+Step 6: Payment method /checkout/onepage/payment/
+Step 7: Order Review /checkout/onepage/review/
+
+-----------------------------------------------------------------------------------------
+WooCommerce Add To Cart
+Event
+Category: Eqauals to - {leave blank}
+Action: Equals to - added to cart
+Label: Equals to - {leave blank}
+Use event value as goal value
+
+-----------------------------------------------------------------------------------------
+WooCommerce Completed Purchase
+Event
+Category: Eqauals to - {leave blank}
+Action: Equals to - completed purchase
+Label: Equals to - {leave blank}
+Use event value as goal value
+
+-----------------------------------------------------------------------------------------
+WooCommerce Redeem Coupon
+Event
+Category: Eqauals to - {leave blank}
+Action: Equals to - applied coupon
+Label: Equals to - {leave blank}
+Use event value as goal value
+
+-----------------------------------------------------------------------------------------
+Phone Call - Call Rail
+Event
+Category: Eqauals to - Phone
+Action: Regular Expression - .*
+Label: Regular Expression - .*
+Use event value as goal value
+
+
+

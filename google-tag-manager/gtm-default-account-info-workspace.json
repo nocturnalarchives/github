@@ -1,6 +1,6 @@
-{
+﻿{
     "exportFormatVersion": 2,
-    "exportTime": "2021-02-11 22:57:31",
+    "exportTime": "2021-02-14 20:17:11",
     "containerVersion": {
         "path": "accounts/6001220528/containers/39547494/versions/0",
         "accountId": "6001220528",
@@ -688,18 +688,18 @@
                             {
                                 "type": "TEMPLATE",
                                 "key": "arg0",
-                                "value": "{{Page URL}}"
+                                "value": "{{Page Hostname}}"
                             },
                             {
                                 "type": "TEMPLATE",
                                 "key": "arg1",
-                                "value": "https://www.example.com"
+                                "value": ".example.com"
                             }
                         ]
                     }
                 ],
-                "fingerprint": "1612546471177",
-                "parentFolderId": "32"
+                "fingerprint": "1613326057877",
+                "parentFolderId": "5"
             },
             {
                 "accountId": "6001220528",
@@ -1169,6 +1169,11 @@
                         "value": "search_term_string"
                     },
                     {
+                        "type": "TEMPLATE",
+                        "key": "url",
+                        "value": "https://example.com"
+                    },
+                    {
                         "type": "BOOLEAN",
                         "key": "organization._isActive",
                         "value": "false"
@@ -1199,7 +1204,7 @@
                         "value": "false"
                     }
                 ],
-                "fingerprint": "1613084206712",
+                "fingerprint": "1613326363917",
                 "parentFolderId": "5",
                 "formatValue": {}
             },
@@ -1328,13 +1333,6 @@
                 "folderId": "21",
                 "name": "JavaScript",
                 "fingerprint": "1612218068952"
-            },
-            {
-                "accountId": "6001220528",
-                "containerId": "39547494",
-                "folderId": "32",
-                "name": "Schema",
-                "fingerprint": "1612546471176"
             },
             {
                 "accountId": "6001220528",
@@ -1617,7 +1615,7 @@
                 "name": "On-Screen Duration"
             }
         ],
-        "fingerprint": "1613084251607",
+        "fingerprint": "1613333831438",
         "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6001220528/containers/39547494/versions/0?apiLink=version",
         "customTemplate": [
             {
