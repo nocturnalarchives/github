@@ -1,6 +1,6 @@
-﻿{
+{
     "exportFormatVersion": 2,
-    "exportTime": "2021-02-14 20:17:11",
+    "exportTime": "2021-02-18 18:15:10",
     "containerVersion": {
         "path": "accounts/6001220528/containers/39547494/versions/0",
         "accountId": "6001220528",
@@ -1282,6 +1282,94 @@
                         "value": "Missing Page Title"
                     }
                 }
+            },
+            {
+                "accountId": "6001220528",
+                "containerId": "39547494",
+                "variableId": "50",
+                "name": "URL - utm_campaign",
+                "type": "u",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "component",
+                        "value": "QUERY"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "queryKey",
+                        "value": "utm_campaign"
+                    }
+                ],
+                "fingerprint": "1613672068270",
+                "parentFolderId": "49",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6001220528",
+                "containerId": "39547494",
+                "variableId": "51",
+                "name": "URL - utm_content",
+                "type": "u",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "component",
+                        "value": "QUERY"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "queryKey",
+                        "value": "utm_content"
+                    }
+                ],
+                "fingerprint": "1613672068267",
+                "parentFolderId": "49",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6001220528",
+                "containerId": "39547494",
+                "variableId": "52",
+                "name": "URL - utm_medium",
+                "type": "u",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "component",
+                        "value": "QUERY"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "queryKey",
+                        "value": "utm_medium"
+                    }
+                ],
+                "fingerprint": "1613672068268",
+                "parentFolderId": "49",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6001220528",
+                "containerId": "39547494",
+                "variableId": "53",
+                "name": "URL - utm_source",
+                "type": "u",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "component",
+                        "value": "QUERY"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "queryKey",
+                        "value": "utm_source"
+                    }
+                ],
+                "fingerprint": "1613672068269",
+                "parentFolderId": "49",
+                "formatValue": {}
             }
         ],
         "folder": [
@@ -1615,7 +1703,7 @@
                 "name": "On-Screen Duration"
             }
         ],
-        "fingerprint": "1613333831438",
+        "fingerprint": "1613672110755",
         "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6001220528/containers/39547494/versions/0?apiLink=version",
         "customTemplate": [
             {
