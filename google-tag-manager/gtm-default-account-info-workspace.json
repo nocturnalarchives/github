@@ -1,6 +1,6 @@
 {
     "exportFormatVersion": 2,
-    "exportTime": "2021-02-18 18:15:10",
+    "exportTime": "2021-02-22 18:57:08",
     "containerVersion": {
         "path": "accounts/6001220528/containers/39547494/versions/0",
         "accountId": "6001220528",
@@ -688,18 +688,18 @@
                             {
                                 "type": "TEMPLATE",
                                 "key": "arg0",
-                                "value": "{{Page Hostname}}"
+                                "value": "{{Page Path}}"
                             },
                             {
                                 "type": "TEMPLATE",
                                 "key": "arg1",
-                                "value": ".example.com"
+                                "value": "/"
                             }
                         ]
                     }
                 ],
-                "fingerprint": "1613326057877",
-                "parentFolderId": "5"
+                "fingerprint": "1614020163548",
+                "parentFolderId": "3"
             },
             {
                 "accountId": "6001220528",
@@ -740,6 +740,32 @@
                 ],
                 "fingerprint": "1612913845308",
                 "parentFolderId": "40"
+            },
+            {
+                "accountId": "6001220528",
+                "containerId": "39547494",
+                "triggerId": "54",
+                "name": "Trigger - Homepage View",
+                "type": "PAGEVIEW",
+                "filter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Page Path}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "/"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1613847050921",
+                "parentFolderId": "3"
             }
         ],
         "variable": [
@@ -1703,7 +1729,7 @@
                 "name": "On-Screen Duration"
             }
         ],
-        "fingerprint": "1613672110755",
+        "fingerprint": "1614020228382",
         "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6001220528/containers/39547494/versions/0?apiLink=version",
         "customTemplate": [
             {
