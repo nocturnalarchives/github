@@ -1,6 +1,6 @@
 {
     "exportFormatVersion": 2,
-    "exportTime": "2021-02-22 18:57:08",
+    "exportTime": "2021-02-25 17:01:41",
     "containerVersion": {
         "path": "accounts/6001220528/containers/39547494/versions/0",
         "accountId": "6001220528",
@@ -204,13 +204,13 @@
                 "accountId": "6001220528",
                 "containerId": "39547494",
                 "tagId": "22",
-                "name": "JS - Ad Blocker Checking Adblock",
+                "name": "cHTML - AdBlock Checker",
                 "type": "html",
                 "parameter": [
                     {
                         "type": "TEMPLATE",
                         "key": "html",
-                        "value": "<script>\n  (function() {\n    var d = document.createElement('script');\n    d.src = '/media/advertisement.js'; // Modify this!\n    document.head.appendChild(d);\n  })();\n</script>"
+                        "value": "<script>\n  (function() {\n    if ({{DLV - Adblock File Location}} != false ) {\n      var d = document.createElement('script');\n      d.src = '{{DLV - Adblock File Location}}'; // Modify this!\n      document.head.appendChild(d);\n    }  \n  })();\n</script>"
                     },
                     {
                         "type": "BOOLEAN",
@@ -218,7 +218,7 @@
                         "value": "false"
                     }
                 ],
-                "fingerprint": "1612218068954",
+                "fingerprint": "1614222837413",
                 "firingTriggerId": [
                     "12"
                 ],
@@ -430,7 +430,7 @@
                 ],
                 "setupTag": [
                     {
-                        "tagName": "JS - Ad Blocker Checking Adblock"
+                        "tagName": "cHTML - AdBlock Checker"
                     }
                 ],
                 "parentFolderId": "10",
@@ -1195,14 +1195,9 @@
                         "value": "search_term_string"
                     },
                     {
-                        "type": "TEMPLATE",
-                        "key": "url",
-                        "value": "https://example.com"
-                    },
-                    {
                         "type": "BOOLEAN",
                         "key": "organization._isActive",
-                        "value": "false"
+                        "value": "true"
                     },
                     {
                         "type": "BOOLEAN",
@@ -1230,7 +1225,7 @@
                         "value": "false"
                     }
                 ],
-                "fingerprint": "1613326363917",
+                "fingerprint": "1614027638837",
                 "parentFolderId": "5",
                 "formatValue": {}
             },
@@ -1395,6 +1390,95 @@
                 ],
                 "fingerprint": "1613672068269",
                 "parentFolderId": "49",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6001220528",
+                "containerId": "39547494",
+                "variableId": "55",
+                "name": "DLV - Adblock File Location",
+                "type": "smm",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "true"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "input",
+                        "value": "{{Page Hostname}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "defaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "map",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "key",
+                                        "value": "www.example.com"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "/media/advertisement.js"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "key",
+                                        "value": "www.example.com"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "/media/advertisement.js"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1614194402219",
+                "parentFolderId": "5",
+                "formatValue": {
+                    "convertNullToValue": {
+                        "type": "TEMPLATE",
+                        "value": "false"
+                    },
+                    "convertUndefinedToValue": {
+                        "type": "TEMPLATE",
+                        "value": "false"
+                    }
+                }
+            },
+            {
+                "accountId": "6001220528",
+                "containerId": "39547494",
+                "variableId": "56",
+                "name": "DLV - Enable AddThis Tracking",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1614196728437",
+                "parentFolderId": "5",
                 "formatValue": {}
             }
         ],
@@ -1729,7 +1813,7 @@
                 "name": "On-Screen Duration"
             }
         ],
-        "fingerprint": "1614020228382",
+        "fingerprint": "1614272501338",
         "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6001220528/containers/39547494/versions/0?apiLink=version",
         "customTemplate": [
             {
