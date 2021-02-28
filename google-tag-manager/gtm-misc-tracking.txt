@@ -1,5 +1,10 @@
 
-
+[sc name='gtm-tracker-gif' class='']
 -----------------------------------------------------------------------------------------
 Tracking Lead Gen Form Visibility
 <span id='gtmvnleadgenpage'><img src='https://example.com/spacer.gif' alt='spacer' height='1' width='1'></span>
+-----------------------------------------------------------------------------------------
+<div id='gtmtracker' class=''></div>
+-----------------------------------------------------------------------------------------
+<div id='gtmtracker' class='%%class%%'>[sc name='spacer-gif']</div>
+-----------------------------------------------------------------------------------------
