@@ -1,6 +1,6 @@
-{
+fa{
     "exportFormatVersion": 2,
-    "exportTime": "2021-02-25 17:01:41",
+    "exportTime": "2021-03-02 19:51:39",
     "containerVersion": {
         "path": "accounts/6001220528/containers/39547494/versions/0",
         "accountId": "6001220528",
@@ -1813,7 +1813,7 @@
                 "name": "On-Screen Duration"
             }
         ],
-        "fingerprint": "1614272501338",
+        "fingerprint": "1614714699638",
         "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6001220528/containers/39547494/versions/0?apiLink=version",
         "customTemplate": [
             {
