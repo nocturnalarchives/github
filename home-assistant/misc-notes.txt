@@ -209,47 +209,64 @@ Template
 entity_id: light.soffit_bulb_s1
 service: light.turn_on
 data:
-  brightness_pct: 50
+  brightness_pct: 100
   entity_id: light.soffit_bulb_s1
-  kelvin: 4000
+  rgb_color:
+      - 0
+      - 127
+      - 0
 
 
 
 entity_id: light.soffit_bulb_s2
 service: light.turn_on
 data:
-  brightness_pct: 50
+  brightness_pct: 100
   entity_id: light.soffit_bulb_s2
-  kelvin: 4000
+  rgb_color:
+      - 0
+      - 127
+      - 0
 
 entity_id: light.pendulum_bulb
 service: light.turn_on
 data:
-  brightness_pct: 50
+  brightness_pct: 100
   entity_id: light.pendulum_bulb
-  kelvin: 4000
-
+  rgb_color:
+      - 0
+      - 127
+      - 0
 
 entity_id: light.soffit_bulb_s3
 service: light.turn_on
 data:
-  brightness_pct: 50
+  brightness_pct: 100
   entity_id: light.soffit_bulb_s3
-  kelvin: 4000
+  rgb_color:
+      - 0
+      - 127
+      - 0
 
 
 entity_id: light.soffit_bulb_s4
 service: light.turn_on
 data:
-  brightness_pct: 50
+  brightness_pct: 100
   entity_id: light.soffit_bulb_s4
-  kelvin: 4000
+  rgb_color:
+    - 0
+    - 127
+    - 0
 
 
 
 entity_id: light.soffit_bulb_s5
 service: light.turn_on
 data:
-  brightness_pct: 50
+  brightness_pct: 100
   entity_id: light.soffit_bulb_s5
-  kelvin: 4000
+  rgb_color:
+    - 0
+    - 127
+    - 0
