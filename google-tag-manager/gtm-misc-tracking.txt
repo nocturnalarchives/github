@@ -8,3 +8,9 @@ Tracking Lead Gen Form Visibility
 -----------------------------------------------------------------------------------------
 <div id='gtmtracker' class='%%class%%'>[sc name='spacer-gif']</div>
 -----------------------------------------------------------------------------------------
+Clickstream Tracking - https://mixedanalytics.com/blog/quickstart-google-analytics-clickstream-data/
+-----------------------------------------------------------------------------------------
+Clickstream Data to Event
+ - Timestamp: {{DLV - Clickstream Timestamp}} - Session ID: {{DLV - Clickstream Session ID}} - GA Client ID:{{DLV - GA Client ID}}
+ -----------------------------------------------------------------------------------------
+ 
