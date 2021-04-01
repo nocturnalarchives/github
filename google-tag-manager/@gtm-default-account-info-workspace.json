@@ -1,6 +1,6 @@
 {
     "exportFormatVersion": 2,
-    "exportTime": "2021-03-31 19:07:14",
+    "exportTime": "2021-04-01 14:09:40",
     "containerVersion": {
         "path": "accounts/6001220528/containers/39547494/versions/0",
         "accountId": "6001220528",
@@ -2502,7 +2502,7 @@
                                     {
                                         "type": "TEMPLATE",
                                         "key": "value",
-                                        "value": "/uploads/spacer.gif"
+                                        "value": "/wp-content//uploads/spacer.gif"
                                     }
                                 ]
                             },
@@ -2517,7 +2517,7 @@
                                     {
                                         "type": "TEMPLATE",
                                         "key": "value",
-                                        "value": "/uploads/spacer.gif"
+                                        "value": "/wp-content//uploads/spacer.gif"
                                     }
                                 ]
                             },
@@ -2532,14 +2532,14 @@
                                     {
                                         "type": "TEMPLATE",
                                         "key": "value",
-                                        "value": "/uploads/spacer.gif"
+                                        "value": "/wp-content//uploads/spacer.gif"
                                     }
                                 ]
                             }
                         ]
                     }
                 ],
-                "fingerprint": "1615325015940",
+                "fingerprint": "1617222470565",
                 "parentFolderId": "5",
                 "formatValue": {
                     "convertNullToValue": {
@@ -3017,6 +3017,23 @@
                 "fingerprint": "1617217240294",
                 "parentFolderId": "5",
                 "formatValue": {}
+            },
+            {
+                "accountId": "6001220528",
+                "containerId": "39547494",
+                "variableId": "95",
+                "name": "DLV - searchdomain",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "https://example.com/?s={search_term}"
+                    }
+                ],
+                "fingerprint": "1617286133802",
+                "parentFolderId": "5",
+                "formatValue": {}
             }
         ],
         "folder": [
@@ -3343,7 +3360,7 @@
                 "name": "On-Screen Duration"
             }
         ],
-        "fingerprint": "1617217633977",
+        "fingerprint": "1617286180846",
         "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6001220528/containers/39547494/versions/0?apiLink=version",
         "customTemplate": [
             {
