@@ -1,6 +1,6 @@
-b{
+{
     "exportFormatVersion": 2,
-    "exportTime": "2021-03-30 14:03:51",
+    "exportTime": "2021-03-31 19:07:14",
     "containerVersion": {
         "path": "accounts/6001220528/containers/39547494/versions/0",
         "accountId": "6001220528",
@@ -1127,7 +1127,7 @@ b{
                 "accountId": "6001220528",
                 "containerId": "39547494",
                 "triggerId": "82",
-                "name": "TRIGGER - Key Page View - Weather",
+                "name": "TRIGGER - Key Page View - Weather Off",
                 "type": "PAGEVIEW",
                 "filter": [
                     {
@@ -1161,12 +1161,12 @@ b{
                             {
                                 "type": "TEMPLATE",
                                 "key": "arg1",
-                                "value": "true"
+                                "value": "false"
                             }
                         ]
                     }
                 ],
-                "fingerprint": "1616629673362",
+                "fingerprint": "1617205140334",
                 "parentFolderId": "5"
             },
             {
@@ -1270,6 +1270,108 @@ b{
                 ],
                 "fingerprint": "1617112534103",
                 "parentFolderId": "5"
+            },
+            {
+                "accountId": "6001220528",
+                "containerId": "39547494",
+                "triggerId": "90",
+                "name": "TRIGGER - Key Page View - Geo Combo",
+                "type": "PAGEVIEW",
+                "filter": [
+                    {
+                        "type": "MATCH_REGEX",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Page Path}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "(key-page|match)"
+                            },
+                            {
+                                "type": "BOOLEAN",
+                                "key": "ignore_case",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "MATCH_REGEX",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{DLV - cookieGeoWeather}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "([0-9])"
+                            },
+                            {
+                                "type": "BOOLEAN",
+                                "key": "ignore_case",
+                                "value": "true"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1617204668692",
+                "parentFolderId": "3"
+            },
+            {
+                "accountId": "6001220528",
+                "containerId": "39547494",
+                "triggerId": "91",
+                "name": "TRIGGER - Key Page View - Non US",
+                "type": "PAGEVIEW",
+                "filter": [
+                    {
+                        "type": "MATCH_REGEX",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{Page Path}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "(page-match|here)"
+                            },
+                            {
+                                "type": "BOOLEAN",
+                                "key": "ignore_case",
+                                "value": "true"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{DLV - Geo - Country Name}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "United States"
+                            },
+                            {
+                                "type": "BOOLEAN",
+                                "key": "negate",
+                                "value": "true"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1617210763899",
+                "parentFolderId": "40"
             }
         ],
         "variable": [
@@ -2823,6 +2925,98 @@ b{
                         "value": "false"
                     }
                 }
+            },
+            {
+                "accountId": "6001220528",
+                "containerId": "39547494",
+                "variableId": "89",
+                "name": "DLV - cookieGeoWeather",
+                "type": "k",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "decodeCookie",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "cookieGeoWeather"
+                    }
+                ],
+                "fingerprint": "1617203781577",
+                "parentFolderId": "49",
+                "formatValue": {
+                    "convertNullToValue": {
+                        "type": "TEMPLATE",
+                        "value": "false"
+                    },
+                    "convertUndefinedToValue": {
+                        "type": "TEMPLATE",
+                        "value": "false"
+                    }
+                }
+            },
+            {
+                "accountId": "6001220528",
+                "containerId": "39547494",
+                "variableId": "92",
+                "name": "DLV - Geo - Country Name",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "geoData.country_name"
+                    }
+                ],
+                "fingerprint": "1617210698798",
+                "parentFolderId": "49",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6001220528",
+                "containerId": "39547494",
+                "variableId": "93",
+                "name": "DLV - shortdomain",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "example.com"
+                    }
+                ],
+                "fingerprint": "1617217138373",
+                "parentFolderId": "5",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6001220528",
+                "containerId": "39547494",
+                "variableId": "94",
+                "name": "Use Schema Site Search - Global Flag",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1617217240294",
+                "parentFolderId": "5",
+                "formatValue": {}
             }
         ],
         "folder": [
@@ -3149,7 +3343,7 @@ b{
                 "name": "On-Screen Duration"
             }
         ],
-        "fingerprint": "1617113031546",
+        "fingerprint": "1617217633977",
         "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6001220528/containers/39547494/versions/0?apiLink=version",
         "customTemplate": [
             {
