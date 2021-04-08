@@ -1,13 +1,7 @@
 DB CORRUPT
 rm /config/home-assistant_v2.db
 
--rm /config/home-assistant_v2.db
--rm /home-assistant_v2.db
--r config/home-assistant_v2.db
--r /home-assistant_v2.db
--r home-assistant_v2.db
 
-rm home-assistant_v2.db
 
 HUE Color Archives
 -----------------------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 {
     "exportFormatVersion": 2,
-    "exportTime": "2021-04-01 14:09:40",
+    "exportTime": "2021-04-07 20:34:45",
     "containerVersion": {
         "path": "accounts/6001220528/containers/39547494/versions/0",
         "accountId": "6001220528",
@@ -1223,7 +1223,7 @@
                 "type": "PAGEVIEW",
                 "filter": [
                     {
-                        "type": "CONTAINS",
+                        "type": "MATCH_REGEX",
                         "parameter": [
                             {
                                 "type": "TEMPLATE",
@@ -1233,11 +1233,11 @@
                             {
                                 "type": "TEMPLATE",
                                 "key": "arg1",
-                                "value": "example.com"
+                                "value": "example\\.com"
                             },
                             {
                                 "type": "BOOLEAN",
-                                "key": "negate",
+                                "key": "ignore_case",
                                 "value": "true"
                             }
                         ]
@@ -1268,7 +1268,7 @@
                         ]
                     }
                 ],
-                "fingerprint": "1617112534103",
+                "fingerprint": "1617827633160",
                 "parentFolderId": "5"
             },
             {
@@ -1319,8 +1319,8 @@
                         ]
                     }
                 ],
-                "fingerprint": "1617204668692",
-                "parentFolderId": "3"
+                "fingerprint": "1617827604831",
+                "parentFolderId": "5"
             },
             {
                 "accountId": "6001220528",
@@ -3034,6 +3034,63 @@
                 "fingerprint": "1617286133802",
                 "parentFolderId": "5",
                 "formatValue": {}
+            },
+            {
+                "accountId": "6001220528",
+                "containerId": "39547494",
+                "variableId": "96",
+                "name": "Block Last Product Suggest By IP",
+                "type": "smm",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "true"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "input",
+                        "value": "{{DLV - Geo - IP}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "defaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "map",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "key",
+                                        "value": "1.1.1.1"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "true"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1617372503080",
+                "parentFolderId": "5",
+                "formatValue": {
+                    "convertNullToValue": {
+                        "type": "TEMPLATE",
+                        "value": "false"
+                    },
+                    "convertUndefinedToValue": {
+                        "type": "TEMPLATE",
+                        "value": "false"
+                    }
+                }
             }
         ],
         "folder": [
@@ -3360,7 +3417,7 @@
                 "name": "On-Screen Duration"
             }
         ],
-        "fingerprint": "1617286180846",
+        "fingerprint": "1617827685584",
         "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6001220528/containers/39547494/versions/0?apiLink=version",
         "customTemplate": [
             {
