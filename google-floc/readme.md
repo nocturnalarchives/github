@@ -7,10 +7,10 @@ For website publishers there is a way to make sure visits to their website isn't
 >Permissions-Policy: interest-cohort=()
 >
 The easiest way to do this is by adding somee code to your HTACCESS file. Making a mistake when editing your HTACCESS will completely break your website, so if you don't know what you're doing or have never edited your HTACCESS file this might not be a good idea. If you do want to add the code, you'll ned to add the three lines below:
->
->&lt;IfModule mod_headers.c&gt;
->Header always set Permissions-Policy "interest-cohort=()"
->&lt;/IfModule&gt;
+> 
+>&lt;IfModule mod_headers.c&gt;<br />
+>Header always set Permissions-Policy "interest-cohort=()"<br />
+>&lt;/IfModule&gt;<br />
 >
 Once you've saved your HTACCESS file use a [header checker](https://securityheaders.com/) and look for "interest-cohort=()" next to the "Permissions-Policy" section, if it's there you're good.
 
