@@ -15,7 +15,7 @@ The easiest way to do this is by adding somee code to your HTACCESS file. Making
 Once you've saved your HTACCESS file use a [header checker](https://securityheaders.com/) and look for "interest-cohort=()" next to the "Permissions-Policy" section, if it's there you're good.
 
 ## What Websites Should Be Blocking Google FLoC
-If you run a website that deals with Personally Identifiable Information (PII) you should probably be blocking FLoC. If your website has medical, health, fitness, financial, dating, relationship, genders, sexuality, political, or any type of contrevertial content, you probably should be blocking FLoC.
+If you run a website that deals with Personally Identifiable Information (PII) you should probably be blocking FLoC. If your website has medical, health, fitness, financial, dating, relationship, gender, sexuality, political, or any type of contrevertial content, you probably should be blocking FLoC.
 
 ## What Websites Should Not Be Blocking FLoC
 It's currently unknown if there are any negative consequences for blocking FLoC, so you should be careful where you do decide to implement this code. That said there are some websites where blockinmg FLoC seeems like a bad idea. If your website earns income using Google AdSense, I would not block FLoC. Additionally if your website gets traffic, sales, or leads from PPC Advertising from things like Google Adwords I would not block FLoC.
