@@ -11,7 +11,7 @@ The easiest way to do this is by adding somee code to your HTACCESS file. Making
 >&lt;IfModule mod_headers.c&gt;<br />
 >Header always set Permissions-Policy "interest-cohort=()"<br />
 >&lt;/IfModule&gt;<br />
->
+> 
 Once you've saved your HTACCESS file use a [header checker](https://securityheaders.com/) and look for "interest-cohort=()" next to the "Permissions-Policy" section, if it's there you're good.
 
 ## What Websites Should Be Blocking Google FLoC
