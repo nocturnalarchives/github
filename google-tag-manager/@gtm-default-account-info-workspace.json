@@ -1,6 +1,6 @@
 {
     "exportFormatVersion": 2,
-    "exportTime": "2021-04-07 20:34:45",
+    "exportTime": "2021-04-29 17:33:56",
     "containerVersion": {
         "path": "accounts/6001220528/containers/39547494/versions/0",
         "accountId": "6001220528",
@@ -639,34 +639,6 @@
             {
                 "accountId": "6001220528",
                 "containerId": "39547494",
-                "tagId": "45",
-                "name": "Account Custom - Hover Listener",
-                "type": "html",
-                "parameter": [
-                    {
-                        "type": "TEMPLATE",
-                        "key": "html",
-                        "value": "<script id=\"gtm-hover-listener\">\n  (function(document, window) {\n\n    var qs = '{{Account Custom - Hover Listener CSS Selectors}}'.split(',');\n    var addEvent = {{fn.addEvent}};\n    var removeEvent = {{fn.removeEvent}};\n    var i;\n\n    for (i = 0; i < qs.length; i++) {\n\n      var els;\n\n      try {\n\n        els = document.querySelectorAll(qs[i]);\n\n      } catch(e) { \n\n        // If we're in Debug Mode, warn the tester\n        if ({{Debug Mode}}) {\n\n          throw 'DOMException: GTM Hover Listener - Invalid Query Selector in variable Constant - Hover Listener CSS Selectors; ' + e.message;\n\n        }\n\n      }\n      var k;\n\n      for (k = 0; k < els.length; k++) {\n\n        var el = els[k];\n        addEvent(el, 'mouseenter', bind_);\n\n      }\n\n    }\n\n    function bind_(evt) {\n\n      var el = evt.target;\n\n      // Fire our push as long as they don't leave in less than half a second\n      el.__htimer = setTimeout(function() {\n\n        removeEvent(el, 'mouseLeave', unbind_);\n\n        dataLayer.push({\n          event: \"hover\",\n          attributes: {\n            element: el\n          }\n        });\n\n      }, 500);\n\n      addEvent(el, 'mouseleave', unbind_);\n\n    }\n\n    // Unbind our push in case they leave\n    function unbind_(evt) {\n\n      var el = evt.target;\n\n      clearTimeout(el.__htimer);\n      el.__htimer = null;\n\n      removeEvent(el, 'mouseleave', unbind_);\n\n    }\n\n  })(document, window);\n</script>"
-                    },
-                    {
-                        "type": "BOOLEAN",
-                        "key": "supportDocumentWrite",
-                        "value": "false"
-                    }
-                ],
-                "fingerprint": "1612909691418",
-                "firingTriggerId": [
-                    "44"
-                ],
-                "parentFolderId": "40",
-                "tagFiringOption": "ONCE_PER_EVENT",
-                "monitoringMetadata": {
-                    "type": "MAP"
-                }
-            },
-            {
-                "accountId": "6001220528",
-                "containerId": "39547494",
                 "tagId": "47",
                 "name": "Custom Engagement - CSS Hover",
                 "type": "ua",
@@ -707,11 +679,11 @@
                         "value": "Hover Element - {{DLV - Page Title (JavaScript)}} - {{Account Custom - Hover Listener CSS Selectors}}"
                     }
                 ],
-                "fingerprint": "1612913983972",
+                "fingerprint": "1619715081319",
                 "firingTriggerId": [
                     "46"
                 ],
-                "parentFolderId": "40",
+                "parentFolderId": "5",
                 "tagFiringOption": "ONCE_PER_EVENT",
                 "monitoringMetadata": {
                     "type": "MAP"
@@ -788,6 +760,39 @@
                     "2147479553"
                 ],
                 "parentFolderId": "5",
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                }
+            },
+            {
+                "accountId": "6001220528",
+                "containerId": "39547494",
+                "tagId": "100",
+                "name": "Secondary UA Page View",
+                "type": "ua",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "overrideGaSettings",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackType",
+                        "value": "TRACK_PAGEVIEW"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "gaSettings",
+                        "value": "{{Secondary UA}}"
+                    }
+                ],
+                "fingerprint": "1619714221721",
+                "firingTriggerId": [
+                    "99"
+                ],
+                "parentFolderId": "10",
                 "tagFiringOption": "ONCE_PER_EVENT",
                 "monitoringMetadata": {
                     "type": "MAP"
@@ -945,8 +950,8 @@
                         ]
                     }
                 ],
-                "fingerprint": "1612913845308",
-                "parentFolderId": "40"
+                "fingerprint": "1619715093914",
+                "parentFolderId": "5"
             },
             {
                 "accountId": "6001220528",
@@ -1239,6 +1244,11 @@
                                 "type": "BOOLEAN",
                                 "key": "ignore_case",
                                 "value": "true"
+                            },
+                            {
+                                "type": "BOOLEAN",
+                                "key": "negate",
+                                "value": "true"
                             }
                         ]
                     },
@@ -1259,16 +1269,11 @@
                                 "type": "BOOLEAN",
                                 "key": "ignore_case",
                                 "value": "true"
-                            },
-                            {
-                                "type": "BOOLEAN",
-                                "key": "negate",
-                                "value": "true"
                             }
                         ]
                     }
                 ],
-                "fingerprint": "1617827633160",
+                "fingerprint": "1618154884972",
                 "parentFolderId": "5"
             },
             {
@@ -1370,8 +1375,34 @@
                         ]
                     }
                 ],
-                "fingerprint": "1617210763899",
-                "parentFolderId": "40"
+                "fingerprint": "1619714247025",
+                "parentFolderId": "5"
+            },
+            {
+                "accountId": "6001220528",
+                "containerId": "39547494",
+                "triggerId": "99",
+                "name": "Page View - Secondary UA",
+                "type": "PAGEVIEW",
+                "filter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{DLV - Enable Secondary UA}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "true"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1619714204191",
+                "parentFolderId": "5"
             }
         ],
         "variable": [
@@ -1964,38 +1995,6 @@
             {
                 "accountId": "6001220528",
                 "containerId": "39547494",
-                "variableId": "41",
-                "name": "fn.addEvent",
-                "type": "jsm",
-                "parameter": [
-                    {
-                        "type": "TEMPLATE",
-                        "key": "javascript",
-                        "value": "// Add Event Listener Polyfill\nfunction() {\n\n  return function(el, eventName, fn) {\n\n    if (el.addEventListener) {\n\n      el.addEventListener(eventName, fn);\n\n    } else if (el.attachEvent) {\n\n      el.attachEvent('on' + eventName, function(evt) {\n\n        polyfillHandler(el, eventName, fn);\n\n      });\n\n    } else if (typeof el['on' + eventName] === 'undefined' || el['on' + eventName] === null) {\n\n      el['on' + eventName] = function(evt) {\n\n        polyfillHandler(el, eventName, fn);\n\n      };\n\n    }\n\n  };\n\n  function polyfillHandler(el, evt, fn) {\n\n    // Polyfill for non-standard target\n    evt.target = evt.target || evt.srcElement;\n\n    fn.call(el, evt);\n\n  }\n\n}"
-                    }
-                ],
-                "fingerprint": "1612909691416",
-                "parentFolderId": "40"
-            },
-            {
-                "accountId": "6001220528",
-                "containerId": "39547494",
-                "variableId": "42",
-                "name": "fn.removeEvent",
-                "type": "jsm",
-                "parameter": [
-                    {
-                        "type": "TEMPLATE",
-                        "key": "javascript",
-                        "value": "// Remove Event Listener Polyfill\nfunction() {\n\n  return function(el, eventName, fn) {\n\n    if (el.removeEventListener) {\n\n      el.removeEventListener(eventName, fn);\n\n    } else if (el.detachEvent) {\n\n      el.detachEvent('on' + eventName, fn);\n\n    } else if (el['on' + eventName] === fn) {\n\n      el['on' + eventName] = null;\n\n    }\n\n  };\n\n}"
-                    }
-                ],
-                "fingerprint": "1612909691417",
-                "parentFolderId": "40"
-            },
-            {
-                "accountId": "6001220528",
-                "containerId": "39547494",
                 "variableId": "43",
                 "name": "Account Custom - Hover Listener CSS Selectors",
                 "type": "c",
@@ -2006,8 +2005,8 @@
                         "value": "CSS SELECTORS HERE"
                     }
                 ],
-                "fingerprint": "1612909691415",
-                "parentFolderId": "40",
+                "fingerprint": "1619715066832",
+                "parentFolderId": "5",
                 "formatValue": {}
             },
             {
@@ -2502,7 +2501,7 @@
                                     {
                                         "type": "TEMPLATE",
                                         "key": "value",
-                                        "value": "/wp-content//uploads/spacer.gif"
+                                        "value": "/wp-content/uploads/spacer.gif"
                                     }
                                 ]
                             },
@@ -2517,7 +2516,7 @@
                                     {
                                         "type": "TEMPLATE",
                                         "key": "value",
-                                        "value": "/wp-content//uploads/spacer.gif"
+                                        "value": "/wp-content/uploads/spacer.gif"
                                     }
                                 ]
                             },
@@ -2532,14 +2531,14 @@
                                     {
                                         "type": "TEMPLATE",
                                         "key": "value",
-                                        "value": "/wp-content//uploads/spacer.gif"
+                                        "value": "/wp-content/uploads/spacer.gif"
                                     }
                                 ]
                             }
                         ]
                     }
                 ],
-                "fingerprint": "1617222470565",
+                "fingerprint": "1618156569210",
                 "parentFolderId": "5",
                 "formatValue": {
                     "convertNullToValue": {
@@ -2763,7 +2762,8 @@
                         "value": "function(){\n  return ga.getAll()[0].get('clientId');\n}"
                     }
                 ],
-                "fingerprint": "1616087235908",
+                "fingerprint": "1619714194443",
+                "parentFolderId": "49",
                 "formatValue": {}
             },
             {
@@ -3091,6 +3091,194 @@
                         "value": "false"
                     }
                 }
+            },
+            {
+                "accountId": "6001220528",
+                "containerId": "39547494",
+                "variableId": "97",
+                "name": "DLV - GA Clickstream Client ID 2",
+                "type": "k",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "decodeCookie",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "_ga"
+                    }
+                ],
+                "fingerprint": "1618153731973",
+                "parentFolderId": "49",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6001220528",
+                "containerId": "39547494",
+                "variableId": "98",
+                "name": "Secondary UA",
+                "type": "gas",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "cookieDomain",
+                        "value": "auto"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "doubleClick",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setTrackerName",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "useDebugVersion",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "useHashAutoLink",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "decorateFormsAutoLink",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableLinkId",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "enableEcommerce",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "trackingId",
+                        "value": "UA-195630235-1"
+                    }
+                ],
+                "fingerprint": "1619714212848",
+                "parentFolderId": "5"
+            },
+            {
+                "accountId": "6001220528",
+                "containerId": "39547494",
+                "variableId": "101",
+                "name": "DLV - Enable Secondary UA",
+                "type": "c",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "value",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1619717595112",
+                "parentFolderId": "5",
+                "formatValue": {}
+            },
+            {
+                "accountId": "6001220528",
+                "containerId": "39547494",
+                "variableId": "102",
+                "name": "DLV - Container ID",
+                "type": "smm",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "true"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "input",
+                        "value": "{{Page Hostname}}"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "defaultValue",
+                        "value": "GTM-ABC123"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "map",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "key",
+                                        "value": "www.example.com"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "GTM-ABC123"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "key",
+                                        "value": "example.com"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "GTM-ABC123"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "key",
+                                        "value": "mcstaging2.example.com"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "GTM-ABC123"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "key",
+                                        "value": "testing.example.com"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "GTM-ABC123"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1619717582171",
+                "parentFolderId": "5",
+                "formatValue": {}
             }
         ],
         "folder": [
@@ -3135,13 +3323,6 @@
                 "folderId": "21",
                 "name": "JavaScript",
                 "fingerprint": "1612218068952"
-            },
-            {
-                "accountId": "6001220528",
-                "containerId": "39547494",
-                "folderId": "40",
-                "name": "Account Custom",
-                "fingerprint": "1612909691414"
             },
             {
                 "accountId": "6001220528",
@@ -3417,7 +3598,7 @@
                 "name": "On-Screen Duration"
             }
         ],
-        "fingerprint": "1617827685584",
+        "fingerprint": "1619717636026",
         "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6001220528/containers/39547494/versions/0?apiLink=version",
         "customTemplate": [
             {
