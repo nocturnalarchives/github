@@ -1,6 +1,6 @@
 {
     "exportFormatVersion": 2,
-    "exportTime": "2021-04-29 17:33:56",
+    "exportTime": "2021-05-09 16:47:40",
     "containerVersion": {
         "path": "accounts/6001220528/containers/39547494/versions/0",
         "accountId": "6001220528",
@@ -639,59 +639,6 @@
             {
                 "accountId": "6001220528",
                 "containerId": "39547494",
-                "tagId": "47",
-                "name": "Custom Engagement - CSS Hover",
-                "type": "ua",
-                "parameter": [
-                    {
-                        "type": "BOOLEAN",
-                        "key": "nonInteraction",
-                        "value": "false"
-                    },
-                    {
-                        "type": "BOOLEAN",
-                        "key": "overrideGaSettings",
-                        "value": "false"
-                    },
-                    {
-                        "type": "TEMPLATE",
-                        "key": "eventCategory",
-                        "value": "Engagement"
-                    },
-                    {
-                        "type": "TEMPLATE",
-                        "key": "trackType",
-                        "value": "TRACK_EVENT"
-                    },
-                    {
-                        "type": "TEMPLATE",
-                        "key": "gaSettings",
-                        "value": "{{VARIABLE - Google Analytics ID}}"
-                    },
-                    {
-                        "type": "TEMPLATE",
-                        "key": "eventAction",
-                        "value": "Engagement - Hover"
-                    },
-                    {
-                        "type": "TEMPLATE",
-                        "key": "eventLabel",
-                        "value": "Hover Element - {{DLV - Page Title (JavaScript)}} - {{Account Custom - Hover Listener CSS Selectors}}"
-                    }
-                ],
-                "fingerprint": "1619715081319",
-                "firingTriggerId": [
-                    "46"
-                ],
-                "parentFolderId": "5",
-                "tagFiringOption": "ONCE_PER_EVENT",
-                "monitoringMetadata": {
-                    "type": "MAP"
-                }
-            },
-            {
-                "accountId": "6001220528",
-                "containerId": "39547494",
                 "tagId": "76",
                 "name": "User Metrics - Get IP and Geo Data API",
                 "type": "cvt_39547494_75",
@@ -1054,175 +1001,6 @@
             {
                 "accountId": "6001220528",
                 "containerId": "39547494",
-                "triggerId": "80",
-                "name": "TRIGGER - Key Page View",
-                "type": "PAGEVIEW",
-                "filter": [
-                    {
-                        "type": "MATCH_REGEX",
-                        "parameter": [
-                            {
-                                "type": "TEMPLATE",
-                                "key": "arg0",
-                                "value": "{{Page Path}}"
-                            },
-                            {
-                                "type": "TEMPLATE",
-                                "key": "arg1",
-                                "value": "(key-page|matches)"
-                            },
-                            {
-                                "type": "BOOLEAN",
-                                "key": "ignore_case",
-                                "value": "true"
-                            }
-                        ]
-                    }
-                ],
-                "fingerprint": "1616629532953",
-                "parentFolderId": "5"
-            },
-            {
-                "accountId": "6001220528",
-                "containerId": "39547494",
-                "triggerId": "81",
-                "name": "TRIGGER - Key Page View - Geo",
-                "type": "PAGEVIEW",
-                "filter": [
-                    {
-                        "type": "MATCH_REGEX",
-                        "parameter": [
-                            {
-                                "type": "TEMPLATE",
-                                "key": "arg0",
-                                "value": "{{Page Path}}"
-                            },
-                            {
-                                "type": "TEMPLATE",
-                                "key": "arg1",
-                                "value": "(key-page|matches)"
-                            },
-                            {
-                                "type": "BOOLEAN",
-                                "key": "ignore_case",
-                                "value": "true"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "EQUALS",
-                        "parameter": [
-                            {
-                                "type": "TEMPLATE",
-                                "key": "arg0",
-                                "value": "{{DLV - Get IP and Geodata - Global Flag}}"
-                            },
-                            {
-                                "type": "TEMPLATE",
-                                "key": "arg1",
-                                "value": "true"
-                            }
-                        ]
-                    }
-                ],
-                "fingerprint": "1616629610143",
-                "parentFolderId": "5"
-            },
-            {
-                "accountId": "6001220528",
-                "containerId": "39547494",
-                "triggerId": "82",
-                "name": "TRIGGER - Key Page View - Weather Off",
-                "type": "PAGEVIEW",
-                "filter": [
-                    {
-                        "type": "MATCH_REGEX",
-                        "parameter": [
-                            {
-                                "type": "TEMPLATE",
-                                "key": "arg0",
-                                "value": "{{Page Path}}"
-                            },
-                            {
-                                "type": "TEMPLATE",
-                                "key": "arg1",
-                                "value": "(key-page|matches)"
-                            },
-                            {
-                                "type": "BOOLEAN",
-                                "key": "ignore_case",
-                                "value": "true"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "EQUALS",
-                        "parameter": [
-                            {
-                                "type": "TEMPLATE",
-                                "key": "arg0",
-                                "value": "{{Get Weather Data - Global Flag}}"
-                            },
-                            {
-                                "type": "TEMPLATE",
-                                "key": "arg1",
-                                "value": "false"
-                            }
-                        ]
-                    }
-                ],
-                "fingerprint": "1617205140334",
-                "parentFolderId": "5"
-            },
-            {
-                "accountId": "6001220528",
-                "containerId": "39547494",
-                "triggerId": "84",
-                "name": "TRIGGER - Key Page View - Get Reading Score",
-                "type": "PAGEVIEW",
-                "filter": [
-                    {
-                        "type": "EQUALS",
-                        "parameter": [
-                            {
-                                "type": "TEMPLATE",
-                                "key": "arg0",
-                                "value": "{{DLV - Get Reading Score - Global Flag}}"
-                            },
-                            {
-                                "type": "TEMPLATE",
-                                "key": "arg1",
-                                "value": "true"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "MATCH_REGEX",
-                        "parameter": [
-                            {
-                                "type": "TEMPLATE",
-                                "key": "arg0",
-                                "value": "{{Page Path}}"
-                            },
-                            {
-                                "type": "TEMPLATE",
-                                "key": "arg1",
-                                "value": "(key-page|matches)"
-                            },
-                            {
-                                "type": "BOOLEAN",
-                                "key": "ignore_case",
-                                "value": "true"
-                            }
-                        ]
-                    }
-                ],
-                "fingerprint": "1616679799278",
-                "parentFolderId": "5"
-            },
-            {
-                "accountId": "6001220528",
-                "containerId": "39547494",
                 "triggerId": "87",
                 "name": "TRIGGER - Different Referrer - Geolocate",
                 "type": "PAGEVIEW",
@@ -1274,108 +1052,6 @@
                     }
                 ],
                 "fingerprint": "1618154884972",
-                "parentFolderId": "5"
-            },
-            {
-                "accountId": "6001220528",
-                "containerId": "39547494",
-                "triggerId": "90",
-                "name": "TRIGGER - Key Page View - Geo Combo",
-                "type": "PAGEVIEW",
-                "filter": [
-                    {
-                        "type": "MATCH_REGEX",
-                        "parameter": [
-                            {
-                                "type": "TEMPLATE",
-                                "key": "arg0",
-                                "value": "{{Page Path}}"
-                            },
-                            {
-                                "type": "TEMPLATE",
-                                "key": "arg1",
-                                "value": "(key-page|match)"
-                            },
-                            {
-                                "type": "BOOLEAN",
-                                "key": "ignore_case",
-                                "value": "true"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "MATCH_REGEX",
-                        "parameter": [
-                            {
-                                "type": "TEMPLATE",
-                                "key": "arg0",
-                                "value": "{{DLV - cookieGeoWeather}}"
-                            },
-                            {
-                                "type": "TEMPLATE",
-                                "key": "arg1",
-                                "value": "([0-9])"
-                            },
-                            {
-                                "type": "BOOLEAN",
-                                "key": "ignore_case",
-                                "value": "true"
-                            }
-                        ]
-                    }
-                ],
-                "fingerprint": "1617827604831",
-                "parentFolderId": "5"
-            },
-            {
-                "accountId": "6001220528",
-                "containerId": "39547494",
-                "triggerId": "91",
-                "name": "TRIGGER - Key Page View - Non US",
-                "type": "PAGEVIEW",
-                "filter": [
-                    {
-                        "type": "MATCH_REGEX",
-                        "parameter": [
-                            {
-                                "type": "TEMPLATE",
-                                "key": "arg0",
-                                "value": "{{Page Path}}"
-                            },
-                            {
-                                "type": "TEMPLATE",
-                                "key": "arg1",
-                                "value": "(page-match|here)"
-                            },
-                            {
-                                "type": "BOOLEAN",
-                                "key": "ignore_case",
-                                "value": "true"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "EQUALS",
-                        "parameter": [
-                            {
-                                "type": "TEMPLATE",
-                                "key": "arg0",
-                                "value": "{{DLV - Geo - Country Name}}"
-                            },
-                            {
-                                "type": "TEMPLATE",
-                                "key": "arg1",
-                                "value": "United States"
-                            },
-                            {
-                                "type": "BOOLEAN",
-                                "key": "negate",
-                                "value": "true"
-                            }
-                        ]
-                    }
-                ],
-                "fingerprint": "1619714247025",
                 "parentFolderId": "5"
             },
             {
@@ -3207,7 +2883,7 @@
                     {
                         "type": "TEMPLATE",
                         "key": "defaultValue",
-                        "value": "GTM-ABC123"
+                        "value": "GTM-ABCD123"
                     },
                     {
                         "type": "LIST",
@@ -3224,7 +2900,7 @@
                                     {
                                         "type": "TEMPLATE",
                                         "key": "value",
-                                        "value": "GTM-ABC123"
+                                        "value": "GTM-PKJCQCJ"
                                     }
                                 ]
                             },
@@ -3239,7 +2915,7 @@
                                     {
                                         "type": "TEMPLATE",
                                         "key": "value",
-                                        "value": "GTM-ABC123"
+                                        "value": "GTM-PKJCQCJ"
                                     }
                                 ]
                             },
@@ -3249,36 +2925,102 @@
                                     {
                                         "type": "TEMPLATE",
                                         "key": "key",
-                                        "value": "mcstaging2.example.com"
+                                        "value": "test.example.com"
                                     },
                                     {
                                         "type": "TEMPLATE",
                                         "key": "value",
-                                        "value": "GTM-ABC123"
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "MAP",
-                                "map": [
-                                    {
-                                        "type": "TEMPLATE",
-                                        "key": "key",
-                                        "value": "testing.example.com"
-                                    },
-                                    {
-                                        "type": "TEMPLATE",
-                                        "key": "value",
-                                        "value": "GTM-ABC123"
+                                        "value": "GTM-PKJCQCJ"
                                     }
                                 ]
                             }
                         ]
                     }
                 ],
-                "fingerprint": "1619717582171",
+                "fingerprint": "1620578705938",
                 "parentFolderId": "5",
-                "formatValue": {}
+                "formatValue": {
+                    "convertNullToValue": {
+                        "type": "TEMPLATE",
+                        "value": "GTM-ABCD123"
+                    },
+                    "convertUndefinedToValue": {
+                        "type": "TEMPLATE",
+                        "value": "GTM-ABCD123"
+                    }
+                }
+            },
+            {
+                "accountId": "6001220528",
+                "containerId": "39547494",
+                "variableId": "103",
+                "name": "DLV - Key Pages Regex",
+                "type": "remm",
+                "parameter": [
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "true"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "input",
+                        "value": "{{Page URL}}"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "fullMatch",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "replaceAfterMatch",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "defaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "ignoreCase",
+                        "value": "true"
+                    },
+                    {
+                        "type": "LIST",
+                        "key": "map",
+                        "list": [
+                            {
+                                "type": "MAP",
+                                "map": [
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "key",
+                                        "value": "(about|contact|privacy|services?|utm|campaign|email)"
+                                    },
+                                    {
+                                        "type": "TEMPLATE",
+                                        "key": "value",
+                                        "value": "true"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1620578705889",
+                "parentFolderId": "5",
+                "formatValue": {
+                    "convertNullToValue": {
+                        "type": "TEMPLATE",
+                        "value": "false"
+                    },
+                    "convertUndefinedToValue": {
+                        "type": "TEMPLATE",
+                        "value": "false"
+                    }
+                }
             }
         ],
         "folder": [
@@ -3598,7 +3340,7 @@
                 "name": "On-Screen Duration"
             }
         ],
-        "fingerprint": "1619717636026",
+        "fingerprint": "1620578860453",
         "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6001220528/containers/39547494/versions/0?apiLink=version",
         "customTemplate": [
             {
