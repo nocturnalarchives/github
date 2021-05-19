@@ -1,3 +1,0 @@
-{{ ["Excuse me", "Excuse me for interrupting", "Pardon me", "Pardon the interruption", "Pardon me for interrupting", "Excuse the interruption", "Please excuse the interruption", "Please excuse me for interrupting", "sorry to interrupt", "sorry for interrupting", "Sorry for the interruption", "Sorry to disturb you", "sorry for interrupting you" ] | random }}
-
-
