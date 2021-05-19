@@ -1,0 +1,25 @@
+alias: Test Trash Day
+sequence:
+  - condition: time
+    after: '01:00:00'
+    before: '23:59:59'
+  - service: tts.clear_cache
+  - service: tts.google_translate_say
+    data:
+      entity_id: media_player.office_sonos
+      cache: false
+      message: >
+        {% set t = now().strftime("%A") | lower %} {% if t == "monday" %} {{ [
+        "normal","regular" ] | random }} {{ [ "trash","garbage","waste" ] |
+        random }} goes out {{ [ "today","tonight","this evening" ] | random }}
+        {% elif t == "tuesday" %} {{ [ "lawn","landscaping" ] | random }} {{ [
+        "trash","garbage","waste" ] | random }} goes out {{ [
+        "today","tonight","this evening" ] | random }} {% elif t == "wednesday"
+        %} {{ [ "recycling","recyclable" ] | random }} {{ [
+        "trash","garbage","waste" ] | random }} goes out {{ [
+        "today","tonight","this evening" ] | random }} {% elif t == "thursday"
+        %} {{ [ "normal","regular" ] | random }} {{ [ "trash","garbage","waste"
+        ] | random }} goes out {{ [ "today","tonight","this evening" ] | random
+        }} {% else %} {% endif %}
+mode: queued
+max: 10
