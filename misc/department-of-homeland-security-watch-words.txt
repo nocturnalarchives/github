@@ -1,0 +1,403 @@
+Department of Homeland Security - Analyst’s Desktop Binder - 2011
+DHS Watch Words
+Extracted From pg20 - pg23
+source: https://assets.documentcloud.org/documents/296596/analyst-desktop-binder-redacted.pdf
+archive: https://web.archive.org/web/20210523231727/https://assets.documentcloud.org/documents/296596/analyst-desktop-binder-redacted.pdf
+-----------------------------------------------------------------------------------------
+
+2600
+abu sayyaf
+afghanistan
+agriculture
+agro
+agro terror
+aid
+air borne
+airplane
+airport
+al qaeda
+al qaeda arabian peninsula
+al qaeda in the islamic maghreb
+al shabaab
+al-shabaab
+ammonium nitrate
+amtrak
+anthrax
+antiviral
+aqap
+aqim
+arellano felix
+arellano-felix
+armed revolutionary forces colombia
+artistic assassins
+assassination
+attack
+authorities
+avalanche
+avian
+bacteria
+barrio azteca
+bart
+basque separatists
+beltran leyva
+beltran-leyva
+biological
+biological event
+biological infection
+biological weapon
+black out
+blister agent
+blizzard
+body scanner
+bomb squad
+bomb threat
+border
+botnet
+breach
+bridge
+brown out
+brush fire
+brute forcing
+burn
+burst
+bust
+cain and abel
+calderon
+cancelled
+car bomb
+cartel
+cartel de golfo
+cdc
+center for disease control
+chemical
+chemical agent
+chemical burn
+chemical fire
+chemical spill
+chemical weapon
+china
+cikr
+ciudad juarez
+closure
+cloud
+cocaine
+collapse
+colombia
+communications
+computer infrastructure
+conficker
+consular
+consulate
+contamination
+conventional weapon
+cops
+crash
+crest
+critical infrastructure
+critical infrastructure and key resources
+cyber attack
+cyber command
+cyber security
+cyber security
+cyber terror
+ddos
+deaths
+decapitated
+dedicated denial of service
+delays
+denial of service
+dirty bomb
+disaster
+disaster assistance
+disaster management
+disaster medical assistance team
+dmat
+dndo
+dock
+domestic nuclear detection
+domestic nuclear detection office
+domestic security
+domestic security
+drill
+drug
+drug administration
+drug cartel
+drug trade
+drug war
+e-coli
+e. coli
+earthquake
+ebola
+eco terrorism
+ecoli
+el paso
+electric
+emergency
+emergency broadcast system
+emergency landing
+emergency management
+emergency response
+enriched
+environmental terrorist
+epidemic
+erosion
+eta
+euskadi ta askatasuna
+evacuation
+execution
+exercise
+explosion
+explosive
+explosives
+exposure
+extreme weather
+extremism
+facility
+failure or outage
+farc
+fda
+first responder
+flood
+flu
+fmd
+food poisoning
+foot and mouth
+foot and mouth disease
+forest fire
+fort hancock
+fundamentalism
+gang
+gangs
+gas
+grid
+gulf cartel
+gunfight
+guzman
+h1n1
+h1n1
+h5n1
+hacker
+hail
+hamas
+hazardous
+hazardous material incident
+hazardous materials
+hazmat
+health concern h1n1
+help
+heroin
+hezbollah
+home grown
+homeland security
+hostage
+human to animal
+human to human
+hurricane
+ice
+ied
+illegal immigrants
+improvised explosive device
+incident
+industrial spill
+infection
+influenza
+infrastructure
+infrastructure security
+infrastructure security
+initiative
+interstate
+ira
+iran
+iraq
+irish republican army
+islamist
+jihad
+juarez
+keylogger
+kidnap
+la familia
+law enforcement
+leak
+lightening
+listeria
+lockdown
+looting
+los zetas
+magnitude
+malware
+mara salvatrucha
+marijuana
+maritime domain awareness
+marta
+matamoros
+mda
+meth lab
+methamphetamine
+metro
+mexican army
+mexicles
+mexico
+michoacana
+militia
+mitigation
+ms 13
+ms-13
+ms13
+mud slide or mudslide
+mutation
+mysql injection
+narco banners
+narcos
+narcotics
+national biosurveillance integration center
+national infrastructure
+national laboratory
+national preparedness
+national security
+nationalist
+nbic
+nerve agent
+new federation
+nigeria
+nogales
+north korea
+norvo virus
+nuclear
+nuclear facility
+nuclear hazmat
+nuclear threat
+nuevo leon
+organized crime
+outbreak
+pakistan
+palestine liberation front
+palestine liberation organization
+pandemic
+phishing
+phreaking
+pipe bomb
+pirates
+plague
+plf
+plo
+plot
+plume
+police
+pork
+port
+port authority
+power
+power lines
+power outage
+prevention
+public health
+quarantine
+radiation
+radicals
+radioactive
+recall
+recovery
+recruitment
+relief
+resistant
+response
+reynosa
+reyosa
+ricin
+riot
+rootkit
+salmonella
+san diego
+sarin
+scammers
+screening
+security
+service disruption
+shelter in place
+shelter-in-place
+shooting
+shootout
+shots fired
+sick
+sinaloa
+sleet
+small pox
+smart
+smugglers
+smuggling
+snow
+social media
+somalia
+sonora
+southwest
+southwest border violence
+spammer
+spillover
+standoff
+state of emergency
+storm
+strain
+stranded
+stuck
+subway
+suicide attack
+suicide bomber
+suspicious device
+suspicious package
+suspicious substance
+swat
+swine
+symptoms
+taliban
+tamaulipas
+tamiflu
+tamil tigers
+target
+tb
+tehrik
+tehrik i taliban pakistan
+tehrik-i-taliban pakistan
+telecommunications
+temblor
+terror
+terrorism
+terrorist
+terrorists
+threat
+tijuana
+tornado
+torreon
+toxic
+trafficking
+transportation security
+tremor
+trojan
+tsunami
+tsunami warning center
+ttp
+tuberculosis
+tucson
+twister
+typhoon
+u.s. consulate
+us consulate
+vaccine
+violence
+viral hemorrhagic fever
+virus
+warning
+watch
+water borne
+wave
+weapons cache
+weapons grade
+weather disaster
+weather emergency
+white powder
+who
+wildfire
+wmata
+world health organization
+worm
+yemen
+yuma
